@@ -1,0 +1,53 @@
+@media only screen and (max-width: 991px) {
+	/* Force table to not be like tables anymore */
+	#no-more-tables > table,
+	#no-more-tables > table > thead,
+	#no-more-tables > table > tbody,
+	#no-more-tables > table > thead > tr > th,
+	#no-more-tables > table > tbody > tr > td,
+	#no-more-tables > table > tbody > tr {
+		display: block;
+		text-align: center;
+	}
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#no-more-tables > table > thead > tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	#no-more-tables > table > tbody > tr {
+		border: 1px solid #ccc;
+	}
+	#no-more-tables > table > tbody > tr > td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		white-space: normal;
+		text-align: left;
+		width: 100%;
+	}
+	#no-more-tables > table > tbody > tr > td[data-title] {
+		padding-left: 50%;
+		word-break: break-word;
+		min-height: 31px;
+	}
+	#no-more-tables > table > tbody > tr > td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+		text-align: left;
+		font-weight: bold;
+	}
+	/*
+	Label the data
+	*/
+	#no-more-tables > table > tbody > tr > td:before {
+		content: attr(data-title);
+	}
+}

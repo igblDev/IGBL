@@ -1,0 +1,116 @@
+
+
+#main-content
+{
+	position:relative;
+	background-color:#FFFFFF;
+}
+.pic-text
+{
+	position:relative;
+	margin-top:10%;
+	margin-left:10%;
+}
+.label-txt
+{
+	position:relative;
+
+}
+
+body
+{
+	
+}
+
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transform: translate(-300px, 0) scale(4);
+  font-size: 23px;
+  direction: ltr;
+  cursor: pointer;
+}
+#thumbPreview{
+	float:left;
+	width:30%;
+	padding:2%;
+
+}
+
+#fileInfo{
+	float:left;
+	width:65%;
+	margin-top:2.37%;
+}
+.header{
+	padding:2%;
+	margin-bottom:1%;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABUCAIAAADMNMqaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJdJREFUeNpMjtsSgjAMRLe8owj+v6MO6uAN9Pfahk2TOj6cOUvIpYjfPQofZUBc6IWe6Xkw3j3ii34qzI8e6b5DJGni90TflA7p2iFeyMisnLfGiRw3DQRIh5YOmokUB1rUQCO51pgh1staEM9ay5xlr9lnf/u8r+7WnZ5rf8nwG3/vKLVsd+s/m4ff97uOvjUg1J2rAAMAMMN1H24CC6QAAAAASUVORK5CYII=); 
+	z-index:6;
+	background-size:contain; 
+	color: #ffffff;
+}
+
+.make-center{
+
+border: 1px solid black;
+	/* Internet Explorer 10 */
+display:-ms-flexbox;
+-ms-flex-pack:center;
+-ms-flex-align:center;
+
+/* Firefox */
+display:-moz-box;
+-moz-box-pack:center;
+-moz-box-align:center;
+
+/* Safari, Opera, and Chrome */
+display:-webkit-box;
+-webkit-box-pack:center;
+-webkit-box-align:center;
+
+}
+
+
+
+
+@media(max-width:480px){
+body{
+	font-size:75%;
+}
+
+#thumbPreview{
+	float:left;
+	width:90%;
+	padding:2%;
+
+}
+
+#fileInfo{
+	float:left;
+	width:100%;
+}
+
+.label-txt
+{
+	position:relative;
+
+}
+
+.result{
+	padding:1%;
+}
+
+}
+
+

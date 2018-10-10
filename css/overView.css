@@ -1,0 +1,80 @@
+/* Default CSS */
+.headingSection h2 {font-size: 110%;font-weight: normal;line-height: normal;margin: 0;}
+.fs13 {font-size:13px !important; font-weight:normal !important;}
+.gray2 { color:#f2f2f2; }
+.gray6 { color:#999999; }
+.vaT {vertical-align:top !important;}
+.mainPanel {  margin: 15px; }
+.leftContentbrd{border-right: 1px solid #e5e5e5;}
+.w80p {width:80% !important;}
+.w48p {width:48% !important;}
+.rightContent30{padding-top: 30px;}
+.pL35{padding-left:35px !important;}
+.fs30 {font-size:30px !important; font-weight:normal !important;}
+.orange5 { color:#ff7200; }
+.fs18 {font-size:18px !important; font-weight:normal !important;}
+.pT10{padding-top:10px !important;}
+.pR30{padding-right:30px !important;}
+.fs13B {font-size: 13px !important;font-weight: bold !important;}
+.mB0 {margin-bottom:0 !important;}
+.bg-black{background-color: #171717}
+.alert-overview > li:first-of-type > a:hover{background-color: #323232;}
+.alert-overview > li:first-of-type > a:hover{background-color: #323232;}
+.alert-overview > li > a:hover{ background-color: #171717;}
+.alert-left-btn{width: 50%;float: left}
+.alert-right-btn{width: 50%;float: right}
+.alertIcon {width: 40px;}
+.bgGray7{ background-color: #323232;}
+.w48p {width:48% !important;}
+.m15 {margin: 15px !important;}
+.rTArrow { text-decoration:none; position:relative; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAqCAYAAADbCvnoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQxJREFUeNrs2D0KwkAQBeBksbG18gaeQrD3GpJW8ACKHkCsU3oHe69ha+Ut1k0RCGLYN5N9kxQ7MEVISD6G2Z9s6b0vphSumFhkUCxmfTfquqZ8sKqqpBXahzyOUqEezK1zfRmzh34xZ1alnAJDRTklhoaKgRbAO5KiYqAT2LzJUEgPmaLQUWaGkkyMJijpTE1HaRZXKkq72tNQQ7YfFNTQ/VCDuoKogwVoGXILPPcJ+WCDGswz5ArAbEK+mCAKRguiYTQgKkYKomMkIBMMCjLDICBTDAK6W2IQ0C7k2wqDgBrMugeVHIM29T8UBSMZ9l0UDSP9t29RcxZGCioiDZ4kynzGmEEZRI6vAAMAp7NTyC9PU3AAAAAASUVORK5CYII=) no-repeat; background-position: 95% 50%; background-size: 18px 23px; width:auto; text-align:left; border-left:0; }
+.brdrNone { border: 0 !important;}
+
+.plan-container .planLeftPanel{width: 33%; float: left}
+.plan-container .planRightPanel{width: 67%; float: right}
+.brdR{border-right: 1px solid #cccccc}
+.leftPanPlan{float: left; width: 33%}
+.rightPanPlan{float: right;width: 67%}
+.promo{width:55%; margin: 0 auto;}
+.leftPanLink{float: none; width: auto}
+.rightPanLink{float: none;width: auto}
+.barSep{border-right: 1px #a9a9a9 solid;padding-right: 5px;}
+.barSepLeft{padding-left: 5px}
+.planNav a{ border-bottom: 1px solid #ccc; display:block; font-size:115%; padding: 12px 16px; text-decoration:none; position:relative; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAqCAYAAADbCvnoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQxJREFUeNrs2D0KwkAQBeBksbG18gaeQrD3GpJW8ACKHkCsU3oHe69ha+Ut1k0RCGLYN5N9kxQ7MEVISD6G2Z9s6b0vphSumFhkUCxmfTfquqZ8sKqqpBXahzyOUqEezK1zfRmzh34xZ1alnAJDRTklhoaKgRbAO5KiYqAT2LzJUEgPmaLQUWaGkkyMJijpTE1HaRZXKkq72tNQQ7YfFNTQ/VCDuoKogwVoGXILPPcJ+WCDGswz5ArAbEK+mCAKRguiYTQgKkYKomMkIBMMCjLDICBTDAK6W2IQ0C7k2wqDgBrMugeVHIM29T8UBSMZ9l0UDSP9t29RcxZGCioiDZ4kynzGmEEZRI6vAAMAp7NTyC9PU3AAAAAASUVORK5CYII=) no-repeat; background-position: 95% 50%; background-size: 18px 23px; width:auto; text-align:left; border-left:0; }
+.fs12 {font-size:12px !important; font-weight:normal !important;}
+.h40 {height: 40px;}
+
+/* Tablet CSS */
+@media (min-width: 767px) and (max-width: 979px) {
+.mainPanel {  margin: 15px 0px 0px 15px; }
+.mainPanel .overview.span3{width:100%; float:none}
+.mainPanel .overview.span9{width:100%; float:none;margin-left:0px;padding-top: 20px;}
+.leftContent{border-right: none;padding-bottom: 15px;}
+.rtpadding{padding-left: 30px;padding-bottom: 30px;}
+}
+
+@media (max-width: 979px) {
+    .leftContent70{float: left; width: 70%}
+    .rightContent30{float: right; width: 30%;padding-top: 0px;}
+    .leftPanPlan{float: none; width: 100%}
+    .rightPanPlan{float: none;width: 100%}
+    .leftPanLink{float: left; width: 30%}
+    .rightPanLink{float: right;width: 70%}
+    .promo{width:auto; margin: 5px;margin-left: 15px}
+}
+
+/* Mobile CSS */
+@media (max-width: 767px) {
+    .mainPanel {  margin: 15px 0px 0px 0px; }
+    .leftContent {padding-left: 15px;}
+    .ltPadding {padding: 0px 0px 15px 15px}
+    .tPadding {padding: 15px 15px 10px 0px}
+	.topPad{padding-top:15px;}
+    .barSep{border-right: none;padding-right: 0;}
+    .barSepLeft{padding-left: 0}
+    .leftContent70{width:95%}
+    .plan-container .planLeftPanel{width: 100%; float: none}
+    .plan-container .planRightPanel{display: none}
+    .brdR{border-right: none}
+    .heading, .headingWfloatsBlue { border:15px solid #E6F0F7; display:block; background:#E6F0F7; padding:0; }
+}

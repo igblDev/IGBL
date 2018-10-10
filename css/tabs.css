@@ -1,0 +1,77 @@
+small {
+	color:black;
+}
+.alert-success {
+    border-color: #468847;;
+}
+/***TABS***/
+
+
+/*** TAB COLOR ***/
+.nav-tabs>li>a {
+    background-color: #FFFFFF;
+    border-color: #000000;
+    color: #000000;
+    font-weight: bold;
+    padding-top: 3px;
+    padding-bottom: 1px;
+}
+.nav-tabs>li.active>a, 
+.nav-tabs>li.active>a:hover, 
+.nav-tabs>li.active>a:focus {
+    color: #fff;
+    background-color: #000000;
+    border: 1px solid #000000;
+}
+/*** HOVER TAB COLOR ***/
+.nav-tabs>li>a:hover,
+.nav-tabs>li>a:focus {
+	border-color: black;
+	background-color: yellowgreen;
+	color:black;
+}
+/*** LEFT TABS ***/
+.nav-tabs,
+.nav-pills {
+ text-align: left;
+}
+
+.badge2 {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: black;
+    border-radius: 14px;
+}
+.badge3 {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #01579B;
+    border-radius: 14px;
+}
+.panel-body {
+    padding: 10px;
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.item {
+	background: #333;
+	text-align: center;
+	height: 120px !important;
+}
+smallGray {
+	color:#6c6d6f;
+}

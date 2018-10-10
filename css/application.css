@@ -1,0 +1,102 @@
+.custom-corner-all {  -moz-border-radius: 2px /*{global-radii-blocks}*/;  -webkit-border-radius: 2px /*{global-radii-blocks}*/;  border-radius:  2px /*{global-radii-blocks} */; }
+.overlayImage{position:relative;left:-10px;top:-33px; z-index:2;}
+.lockupBG {background: url(../img/global/lockup_bg.png) right top no-repeat;}
+.no-shadow {text-shadow: none;}
+.white-shadow {text-shadow: 0 0 0 white;}
+.stopOverFlow{white-space: nowrap;text-overflow: ellipsis;overflow:hidden;padding-right: 15px;}
+.keepWithin{position: relative;top: -25px;}
+.blackTitle {background-color: #171717;}
+.liBackground {background: #333333 !important}
+.acctSelection li>a:hover{background-color:#333333 !important;}
+.acctSelection li>a:visited{background-color:#333333 !important;}
+.accountHeight{height: 35px;line-height: 35px;}
+.lightGrayFont {color: #aaa;}
+.blackBackground {background-color: #323232;}
+.acctContainer{min-height: 639px;background: none repeat scroll 0 0 rgb(23, 23, 23);}
+
+.h40 {height: 40px;}
+.bg-black{background-color: #171717}
+
+.bg-black{background-color: #171717}
+.alert-overview > li:nth-of-type(1) > a:hover{background-color: #323232;}
+.alert-overview > li:nth-of-type(3) > a:hover{background-color: #323232;}
+.alert-overview > li:nth-of-type(1) > a:focus{background-color: #323232;}
+.alert-overview > li:nth-of-type(3) > a:focus{background-color: #323232;}
+
+.alert-left-btn{width: 50%;float: left}
+.alert-right-btn{width: 50%;float: right}
+.ui-btn-text { position: relative; z-index: 1; }
+.rTArrow { text-decoration:none; position:relative; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAqCAYAAADbCvnoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQxJREFUeNrs2D0KwkAQBeBksbG18gaeQrD3GpJW8ACKHkCsU3oHe69ha+Ut1k0RCGLYN5N9kxQ7MEVISD6G2Z9s6b0vphSumFhkUCxmfTfquqZ8sKqqpBXahzyOUqEezK1zfRmzh34xZ1alnAJDRTklhoaKgRbAO5KiYqAT2LzJUEgPmaLQUWaGkkyMJijpTE1HaRZXKkq72tNQQ7YfFNTQ/VCDuoKogwVoGXILPPcJ+WCDGswz5ArAbEK+mCAKRguiYTQgKkYKomMkIBMMCjLDICBTDAK6W2IQ0C7k2wqDgBrMugeVHIM29T8UBSMZ9l0UDSP9t29RcxZGCioiDZ4kynzGmEEZRI6vAAMAp7NTyC9PU3AAAAAASUVORK5CYII=) no-repeat; background-position: 95% 50%; background-size: 18px 23px; width:auto; text-align:left; border-left:0; }
+
+#broadlist > li > a {
+    line-height: 40px;
+    padding-left:15px;
+}
+.ui-link{  color: #005b95 /*{c-body-link-color} */;  font-weight: bold; }
+.ui-link:hover{color:#ff7200;text-decoration: none;text-decoration-color:#ff7200;}
+.ui-link:active{color:#ff7200;}
+.ui-link.selected {background-color: #E0FFFF;border: 1px solid #3381B7 }
+
+.ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all {
+    z-index: 7;
+}
+
+.fwBold{
+    font-weight:bold;
+}
+
+.buttonBorder{
+    border-top: solid thin #d3d3d3;
+}
+.customRadio
+{
+    min-height: 20px;
+    padding:0px;
+    line-height:40px;
+
+    font-size:16px;
+    font-family : Arial,Helvetica,sans-serif;
+
+}
+
+.customRadioButton
+{
+    vertical-align: middle !important;
+    margin:5px !important;
+
+}
+
+.userNamePopover{
+    padding: .2em;
+    z-index: 2;
+    display:none
+}
+
+.alertIcon {
+    width: 40px;
+}
+
+.makePaymentBodyStyle{
+    margin: 0 0 0 0;
+    padding:0 0 0 0;
+}
+
+.totalAmountStyle{
+    background-color:#FFFEEC;
+    border-bottom:thin solid #DADADA;
+}
+
+
+.css-form input.ng-invalid.ng-dirty {
+    background-color: #fac3b5;
+}
+.css-form input.ng-valid.ng-dirty {
+    background-color: #d5face;
+}
+
+.container,
+.navbar-static-top .container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+  width: 98%;
+}
