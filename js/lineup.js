@@ -1,9 +1,8 @@
-function functionLineup(theForm) {
-  var totalForwards = 0;
+function functionLineup(theForm) {  var totalForwards = 0;
   var totalGuards   = 0;	var totalCenters  = 0;	var totalPlayers  = 0
   var forName       = "";
   var forNameCen    = "";
-	for (var i = 0; i < theForm.sCenter.length; i++) {    if (theForm.sCenter[i].checked) {      totalCenters += 1;    }  }	if (totalCenters > 1) {		alert("1 Check Box Allowed!\n" + totalCenters + " Checked - (CENTER)");		return false;  }		for (var i = 0; i < theForm.sForward.length; i++) {
+	for (var i = 0; i < theForm.sCenter.length; i++) {    if (theForm.sCenter[i].checked) {      totalCenters += 1;    }  }	if (totalCenters > 1) {		alert("1 Check Box Allowed!\n" + totalCenters + " Checked - (CENTER)");		return false;  }		for (var i = 0; i < theForm.sForward.length; i++) {
     if (theForm.sForward[i].checked) {
       totalForwards += 1;    }  }
   if (totalForwards > 2) {    alert("2 Check Boxes Allowed!\n" + totalForwards + " Checked - (FORWARD)");    return false;  }
