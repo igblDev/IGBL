@@ -17,29 +17,31 @@
 															"ORDER BY tblLast5.barptot DESC, tblLast5.last", objConn,3,3,1
 				%>
 
+				<!--
 				<table class="table table-custom-black table-responsive table-bordered table-condensed">
 					<tr style="background-color:yellowgreen;color:black;font-weight:bold;font-size:12px;">
-						<th style="font-size:12px;" colspan="10">BARP LEADERS | <%= wGameDay %></th>
+						<th style="font-size:12px;" colspan="4">BARP LEADERS | <%= wGameDay %></th>
 					</tr>
-					<tr style="background-color:white;color:black;font-weight:bold;font-size:13px;">
-						<td class="big" style="width:33%;text-transform: uppercase;">Rostered</td>
-						<td class="big" style="width:34%;text-transform: uppercase;background-color:#fcf8e3;">Available</td>
-						<td class="big" style="width:33%;text-transform: uppercase;background-color:#dff0d8">My Player</td>
+					<tr style="background-color:white;color:black;font-weight:bold;font-size:13px">
+						<th class="big" style="width:25%;">Status</th>
+						<td class="big" style="width:25%;">Rostered</td>
+						<td class="big" style="width:25%;background-color:#fcf8e3;">Available</td>
+						<td class="big" style="width:25%;background-color:#dff0d8">My Player</td>
 					</tr>
 				</table>
-				</br>
+				-->
 				<table class="table table-striped table-bordered table-custom-black table-condensed" width="100%" class="display" id="example">
 					<thead>
 						<tr style="background-color:#ddd;font-weight:bold;color:grey;">
-							<th class="big" style="vertical-align:middle;text-align:center;width:10%;"><span style="color:black;"><i class="fas fa-basketball-hoop"></i><span></th>
-							<th class="big" style="vertical-align:middle;text-align:left;width:20%;"><span style="color:black;">PLAYER<span></th>
-							<th class="big" width="10%"><span style="color:black;">B</th>
-							<th class="big" width="10%"><span style="color:black;">A</th>
-							<th class="big" width="10%"><span style="color:black;">R</th>
-							<th class="big" width="10%"><span style="color:black;">P</th>
-							<th class="big" width="10%"><span style="color:black;">S</th>
-							<th class="big" width="10%"><span style="color:black;">3</th>
-							<th class="big" width="10%"><span style="color:black;">T</th>		
+							<th class="big" style="vertical-align:middle;text-align:center;"><span style="color:black;"><i class="fas fa-basketball-hoop"></i><span></th>
+							<th class="big" style="vertical-align:middle;text-align:left;"><span style="color:black;">PLAYER<span></th>
+							<th class="big" style="text-decoration: underline;">B</th>
+							<th class="big" style="text-decoration: underline;">A</th>
+							<th class="big" style="text-decoration: underline;">R</th>
+							<th class="big" style="text-decoration: underline;">P</th>
+							<th class="big" style="text-decoration: underline;">S</th>
+							<th class="big" style="text-decoration: underline;">3</th>
+							<th class="big" style="text-decoration: underline;">T</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -82,29 +84,17 @@
 						 <%else%>
 							<tr style="background-color:white;vertical-align:middle;text-align:center;">	
 						 <%end if%>	
-							<td class="big" style="background-color:#d9ded1;vertical-align:middle;text-align:center">
-								<table class="table table-striped table-bordered table-custom-black table-condensed">
-									<tr>
-										<td style="vertical-align:middle;text-align:center;background-color:white;color:black;font-weight:bold;font-size:12px;"><%=round(objRSLeaders.Fields("barptot").Value,2) %></td>									
-									</tr>
-								</table>
-							</td>
+							<td style="vertical-align:middle;text-align:center;background-color:white;color:black;"><%=round(objRSLeaders.Fields("barptot").Value,2) %></td>									
 							<td class="big" style="vertical-align:middle;text-align:left;">
-							<a class="blue" href="playerprofile.asp?pid=<%=objRSLeaders.Fields("PID").Value %>"><%=left(objRSLeaders.Fields("first").Value,1)%>.&nbsp;<%=left(objRSLeaders.Fields("last").Value,14)%></a>
-							</br><span class="greenTrade"><small><%=left(objRSLeaders.Fields("shortname").Value,10)%></span> | <span class="orange"><%=objRSLeaders.Fields("pos").Value%></small></span>
+							<a class="blue" href="playerprofile.asp?pid=<%=objRSLeaders.Fields("PID").Value %>"><%=left(objRSLeaders.Fields("first").Value,1)%>.&nbsp;<%=left(objRSLeaders.Fields("last").Value,12)%></a>
+							<span class="greenTrade" style="text-transform: uppercase;"><small><%=left(objRSLeaders.Fields("shortname").Value,10)%></span>&nbsp;<span class="orange"><%=objRSLeaders.Fields("pos").Value%></small></span>
 							</td>							   							   
 					<%else%>
 						<tr class="warning">							
-						<td class="big" style="background-color:#d9ded1;vertical-align:middle;text-align:center">
-							<table class="table table-striped table-bordered table-custom-black table-condensed">
-								<tr>
-									<td style="vertical-align:middle;text-align:center;background-color:white;color:black;font-weight:bold;font-size:12px;"><%=round(objRSLeaders.Fields("barptot").Value,2) %></td>									
-								</tr>
-							</table>
-						</td>
+						<td style="vertical-align:middle;text-align:center;background-color:white;color:black;"><%=round(objRSLeaders.Fields("barptot").Value,2) %></td>									
 						<td class="big" style="vertical-align:middle;text-align:left;">
-							<a class="blue" href="playerprofile.asp?pid=<%=objRSLeaders.Fields("PID").Value %>"><%=left(objRSLeaders.Fields("first").Value,1)%>.&nbsp;<%=left(objRSLeaders.Fields("last").Value,14)%></a>
-							</br><small><span class="greenTrade"><%=left(objRSLeaders.Fields("teamshortname").Value,10)%></span> | <span class="orange"><%=objRSLeaders.Fields("pos").Value%></span></small>
+							<a class="blue" href="playerprofile.asp?pid=<%=objRSLeaders.Fields("PID").Value %>"><%=left(objRSLeaders.Fields("first").Value,1)%>.&nbsp;<%=left(objRSLeaders.Fields("last").Value,12)%></a>
+							<small><span class="greenTrade" style="text-transform: uppercase;"><%=left(objRSLeaders.Fields("teamshortname").Value,10)%></span>&nbsp;<span class="orange"><%=objRSLeaders.Fields("pos").Value%></span></small>
 						</td>
 					<%end if%>
 						<% if tbonus >= 3 and CInt(objRSLeaders.Fields("blk").Value) >=10 then %>
@@ -114,7 +104,7 @@
 						<%end if%>						
 						
 						<% if tbonus >= 3 and CInt(objRSLeaders.Fields("ast").Value) >=10 then %>
-							<td class="big" style="background-color:darkorange;color: white;font-weight:bold;border: black;border-style: solid;    border-width: thin;vertical-align:middle;text-align:center;"><%=(objRSLeaders.Fields("ast").Value)%></td>
+							<td class="big" style="background-color:darkorange;color: white;font-weight:bold;border: black;border-style: solid;border-width: thin;vertical-align:middle;text-align:center;"><%=(objRSLeaders.Fields("ast").Value)%></td>
 						<%else%>
 							<td class="big" style="vertical-align:middle;text-align:center;"><%=(objRSLeaders.Fields("ast").Value)%></td>
 						<%end if%>	

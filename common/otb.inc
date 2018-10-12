@@ -39,7 +39,7 @@
 						%>							
 						<%if objRSteams.Fields("OwnerID").value = ownerid then%>
 						<tr style="background-color:white;">
-							<th class="big" colspan="3"><span tyle="text-transform: uppercase;font-weight:bold;"><%= objRSteams.Fields("teamname").Value%></span></th>
+							<th class="big" colspan="3"><span style="font-weight:bold;"><%= objRSteams.Fields("teamname").Value%></span></th>
 						</tr>	
 						<%elseif myTradeInd = false or objRSteams.Fields("acceptTradeOffers").Value = false then%>
 						<tr style="background-color: yellow">
@@ -62,7 +62,7 @@
 									While Not objRSBlock.EOF
 									%>
 									<tr>
-										<td class="big" style="width:33%;background-color:white;text-align:left;"><a class="blue" href="playerprofile.asp?pid=<%=objRSBlock.Fields("pid").Value %>" target="_self"><%= left(objRSBlock.Fields("firstName").Value,1)%>.&nbsp;<%=left(objRSBlock.Fields("lastName").Value,10)%></a>,&nbsp;<small><span class="greenTrade"><%=objRSBlock.Fields("TeamshortName").Value%></span>&nbsp;|&nbsp;<span class="orange"><%=objRSBlock.Fields("POS").Value%></span></small></td>	
+										<td class="big" style="width:33%;background-color:white;text-align:left;"><a class="blue" href="playerprofile.asp?pid=<%=objRSBlock.Fields("pid").Value %>" target="_self"><%= left(objRSBlock.Fields("firstName").Value,1)%>.&nbsp;<%=left(objRSBlock.Fields("lastName").Value,10)%></a>&nbsp;<small><span class="greenTrade"><%=objRSBlock.Fields("TeamshortName").Value%></span>&nbsp;<span class="orange"><%=objRSBlock.Fields("POS").Value%></span></small></td>	
 									</tr>
 									<%
 										objRSBlock.MoveNext

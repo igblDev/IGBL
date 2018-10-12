@@ -12,25 +12,6 @@
 
 %>
 </br>
-<div class="row">
-	<div class="col-md-12 col-sm-12 col-xs-12">
-		<table class="table table-custom-black table-responsive table-bordered table-condensed">
-			<tr style="background-color:white;color:black;font-weight:bold;">
-				<th class="big">Trending</th>
-				<td class="big" style="vertical-align: middle;background-color:#468847;color:white;font-weight:bold;"><i class="far fa-long-arrow-up fa-lg"></i></td>
-				<td class="big" style="vertical-align: middle;background-color:#9a1400;color:white;font-weight:bold;"><i class="far fa-long-arrow-down fa-lg"></i></td>
-				<td class="big" style="vertical-align: middle;background-color:gold;color:black;font-weight:bold;"><i class="fal fa-arrows-h fa-lg"></i></td>
-			</tr>
-			<tr style="background-color:white;color:black;font-weight:bold;font-size:13px">
-				<th class="big" style="width:25%;">Status</th>
-				<td class="big" style="width:25%;">Rostered</td>
-				<td class="big" style="width:25%;background-color:#fcf8e3;">Free Agent</td>
-				<td class="big" style="width:25%;background-color:#dff0d8">My Player</td>
-			</tr>
-		</table>
-	</div>
-</div>
-</br>
 <%
 	objRSSort.Open  "SELECT * FROM qry_PlayerAll order by barps desc", objConn,3,3,1
 %>
@@ -87,31 +68,29 @@
 							<tr style="background-color:white;">		
 						<%end if%>	
 					<%else%>
-							<tr class="warning"> 
+						<tr class="warning"> 
 					<%end if%>	
 						<%if objRSSort.Fields("statusDesc").Value  = "On Team"then	%>
 							<td class="big" style="vertical-align:middle;text-align:left;">
-								<a class="blue" href="playerprofile.asp?pid=<%=objRSSort.Fields("PID").Value %>"><%=left(objRSSort.Fields("FirstName").Value,1)%>.&nbsp;<%=left(objRSSort.Fields("LastName").Value,15)%></a>
+								<a class="blue" href="playerprofile.asp?pid=<%=objRSSort.Fields("PID").Value %>"><%=left(objRSSort.Fields("FirstName").Value,1)%>.&nbsp;<%=left(objRSSort.Fields("LastName").Value,12)%></a>
 								<small>
 									<!--</br><span class="redTrade  text-uppercase"><%=objRSSort.Fields("shortName").Value %></span>-->
-									</br><span class="greenTrade text-uppercase"><%=objRSSort.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="orange"><%=objRSSort.Fields("pos").Value %></span>
+									<small><span class="greenTrade text-uppercase"><%=objRSSort.Fields("teamShortName").Value %></span>&nbsp;<span class="orange"><%=objRSSort.Fields("pos").Value %></span></small>
 								</small>
 							</td>
 						<%else%>
 								<% if objRSNBASked.RecordCount > 0 then %>
 							<td class="big" style="vertical-align:middle;text-align:left;">
-								<a class="blue big" href="playerprofile.asp?pid=<%=objRSSort.Fields("PID").Value %>"><%=left(objRSSort.Fields("LastName").Value,15)%></a>
+								<a class="blue big" href="playerprofile.asp?pid=<%=objRSSort.Fields("PID").Value %>"><%=left(objRSSort.Fields("FirstName").Value,1)%>.&nbsp;<%=left(objRSSort.Fields("LastName").Value,12)%></a>
 								<small>
-									</br><span class="redTrade  text-uppercase">free&nbsp;<i class="fas fa-clock" style="font-weight: bold;color:black;"></i></span>
-									</br><span class="greenTrade text-uppercase"><%=objRSSort.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="orange"><%=objRSSort.Fields("pos").Value %></span>
+									<span class="greenTrade text-uppercase"><%=objRSSort.Fields("teamShortName").Value %></span>&nbsp;<span class="orange"><%=objRSSort.Fields("pos").Value %></span>
 								</small>
 							</td>
 								<%else%>
 							<td class="big" style="vertical-align:middle;text-align:left;">
-								<a class="blue big" href="playerprofile.asp?pid=<%=objRSSort.Fields("PID").Value %>"><%=left(objRSSort.Fields("LastName").Value,15)%></a>
+								<a class="blue big" href="playerprofile.asp?pid=<%=objRSSort.Fields("PID").Value %>"><%=left(objRSSort.Fields("LastName").Value,12)%></a>
 								<small>
-									</br><span class="redTrade  text-uppercase">free</span>
-									</br><span class="greenTrade text-uppercase"><%=objRSSort.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="orange"><%=objRSSort.Fields("pos").Value %></span>
+									</br><span class="greenTrade text-uppercase"><%=objRSSort.Fields("teamShortName").Value %></span>&nbsp;<span class="orange"><%=objRSSort.Fields("pos").Value %></span>
 								</small>
 							</td>
 								<%end if%>		

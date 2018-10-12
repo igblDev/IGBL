@@ -7,7 +7,7 @@
 								<a class="blue" href="playerprofile.asp?pid=<%=objsrAvailPlayers.Fields("PID").Value %>">
 									<%=objsrAvailPlayers.Fields("firstName").Value%>&nbsp;<%=objsrAvailPlayers.Fields("lastName").Value%></a>
 							<%end if%>		
-							<br><small><span class="greenTrade"><%= objsrAvailPlayers.Fields("team")%></span> | <span class="orange"><%= objsrAvailPlayers.Fields("pos")%></span>	
+							<br><small><span class="greenTrade"><%= objsrAvailPlayers.Fields("team")%></span>&nbsp;<span class="orange"><%= objsrAvailPlayers.Fields("pos")%></span>	
 							<% if objsrAvailPlayers.Fields("rentalPlayer").Value = true then %>
 							 <strong><i class="fa fa-registered blue" aria-hidden="true"></i></strong>
 							<%end if%>

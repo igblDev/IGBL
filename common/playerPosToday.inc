@@ -4,7 +4,7 @@
 								<td>
 								<a class="blue" href="playerprofile.asp?pid=<%=objrsPlayerPos.Fields("PID").Value %>">
 									<%=objrsPlayerPos.Fields("firstName").Value%>&nbsp;<%=objrsPlayerPos.Fields("lastName").Value%></a>
-								<br><small><span class="greenTrade"><%= objrsPlayerPos.Fields("team").Value%></span>&nbsp;|&nbsp;<span class="orange"><%=objrsPlayerPos.Fields("pos").Value%></span>
+								<br><small><span class="greenTrade"><%= objrsPlayerPos.Fields("team").Value%></span>&nbsp;<span class="orange"><%=objrsPlayerPos.Fields("pos").Value%></span>
 								</td>
 						<%else%>
 							<% if objrsPlayerPos.Fields("playerStatus").Value = "W" then %>
@@ -47,7 +47,7 @@
 								<a class="blue" href="playerprofile.asp?pid=<%=objrsPlayerPos.Fields("PID").Value %>">
 									<%=objrsPlayerPos.Fields("firstName").Value%>&nbsp;<%=objrsPlayerPos.Fields("lastName").Value%></a>
 							<%end if%>
-							<br><small><span class="greenTrade"><%= objrsPlayerPos.Fields("team").Value%></span>&nbsp;|&nbsp;<span class="orange"><%=objrsPlayerPos.Fields("pos").Value%></span>
+							<br><small><span class="greenTrade"><%= objrsPlayerPos.Fields("team").Value%></span>&nbsp;<span class="orange"><%=objrsPlayerPos.Fields("pos").Value%></span>
 							<br><span class="gameTip"><%= objRSNBASked.Fields("opponent").Value %>&nbsp;<i class="far fa-clock"></i>&nbsp;<%=wtime%></small></span>
 						<% else %>
 							<td class ="big" style="vertical-align:middle;text-align:left;">
@@ -58,7 +58,7 @@
 								<a class="blue" href="playerprofile.asp?pid=<%=objrsPlayerPos.Fields("PID").Value %>">
 									<%=objrsPlayerPos.Fields("firstName").Value%>&nbsp;<%=objrsPlayerPos.Fields("lastName").Value%></a>
 							<%end if%>
-							<br><small><span class="greenTrade"><%= objrsPlayerPos.Fields("team").Value%></span>&nbsp;|&nbsp;<span class="orange"><%=objrsPlayerPos.Fields("pos").Value%></small></span>
+							<br><small><span class="greenTrade"><%= objrsPlayerPos.Fields("team").Value%></span>&nbsp;<span class="orange"><%=objrsPlayerPos.Fields("pos").Value%></small></span>
 						<%end if%>		
 						</td>	
 						<%end if%>
