@@ -593,37 +593,38 @@
 		</tr>
 	</table>
 
-		<div class="div.contained_table">
+				<div class="div.contained_table">
       <table class="table table-custom table-responsive  table-condensed table-bordered">
 			<% if (hscore > ascore) or (htToWon = true) or (htStlWon = true) or (ht3Won = true) then%>
-			<thead>
-			<th class="big" colspan="10"><i class="fas fa-check fa-lg" style="color: #468847;"></i>&nbsp;<span class="greenTrade"><%=objRBox.Fields("hometeam").Value%></span>&nbsp;<span style="color:darkorange;"><small>[<%=objRBox.Fields("hometeamshort").Value%>]</small></span></th>			
-			</thead>	
+				<thead>
+					<th class="big" colspan="10"><i class="fas fa-check fa-lg" style="color: #468847;"></i>&nbsp;<span class="greenTrade"><%=objRBox.Fields("hometeam").Value%></span>&nbsp;<span style="color:darkorange;"><small>[<%=objRBox.Fields("hometeamshort").Value%>]</small></span></th>			
+				</thead>	
 			<%else%>
-			<thead>
-			<th style="color:#a5a6a7;" colspan="10"><%=objRBox.Fields("hometeam").Value%>&nbsp;<small>[<%=objRBox.Fields("hometeamshort").Value%>]</small></th>				
-			</thead>	
+				<thead>
+					<th style="color:#a5a6a7;" colspan="10"><%=objRBox.Fields("hometeam").Value%>&nbsp;<small>[<%=objRBox.Fields("hometeamshort").Value%>]</small></th>				
+				</thead>	
 			<%end if%>	
         <thead>
 					<tr style="background-color:white;font-weight:bold;color:black;">
-						<td class="big" style="vertical-align:middle;text-align:center;width:22%;"><span style="color:black;">PLAYER</span></td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:8%"><span style="color:black;">B</span>LK</td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:8%"><span style="color:black;">A</span>ST</td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:8%"><span style="color:black;">R</span>EB</td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:10%"><span style="color:black;">P</span>TS</td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:8%"><span style="color:black;">S</span>TL</td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:8%"><span style="color:black;">3</span>PT</td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:8%"><span style="color:black;">T</span>O</td>	
-						<th class="big" width:20%;"><span style="color:black;"><i class="fas fa-basketball-hoop"></i></th>			
+						<td class="big" style="vertical-align:middle;text-align:center;width:20%;"><span style="color:black;">PLAYER</span></td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:6%;"><span style="color:black;">M</span></td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:8%;"><span style="color:black;">B</td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:8%;"><span style="color:black;">A</td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:8%;"><span style="color:black;">R</td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:10%;"><span style="color:black;">P</td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:8%;"><span style="color:black;">S</td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:8%;"><span style="color:black;">3</td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:8%;"><span style="color:black;">T</td>	
+						<th class="big"><span style="color:black;width:16%;"><i class="fas fa-basketball-hoop"></i></th>			
 					</tr>
         </thead>
-				<tr style="font-size:11px;font-weight:normal;background-color:black;color:white;">		
+				<tr style="font-weight:normal;background-color:black;color:white;">		
 					<% if hp1Last = false then %>
 						<td class="opp big" style="text-align:left">
 							<i class="fas fa-user-alt-slash big"></i>
 						</td>
 					<%else %>
-						<td class="big" style="font-size:11px;color:#01579B;font-weight:bold;text-align:left;">
+						<td class="big" style="color:#01579B;font-weight:bold;text-align:left;">
 							<a class="white" href="playerprofile.asp?pid=<%=hp1PID %>"><%=left(hp1Last,11)%></a>						
 						</td>
 						<%     
@@ -646,9 +647,9 @@
 						objRSBarps.Close					
 						%>
 					<%end if%>
-						
+						<td class="big" style="color:white;"><%=(objRBox.Fields("hp1MP").Value)%></td>
 						<% if tbonushp1 >= 3 and CInt(objRBox.Fields("hp1BLK").Value) >=10 then %>
-							<td class="big" style="font-size:11px;background-color:darkorange;color: white;font-weight:bold;border: black;border-style: solid;border-width: thin;"><%=(objRBox.Fields("hp1BLK").Value)%></td>
+							<td class="big" style="background-color:darkorange;color: white;font-weight:bold;border: black;border-style: solid;border-width: thin;"><%=(objRBox.Fields("hp1BLK").Value)%></td>
 						<%else%>
 							<td class="big"><%=(objRBox.Fields("hp1BLK").Value)%></td>
 						<%end if%>						
@@ -682,27 +683,26 @@
 						<%else%>
 							<td class="big"><%=(objRBox.Fields("hp13S").Value)%></td>
 						<%end if%>	
-						<td class="big"><%=(objRBox.Fields("hp1TOs").Value)%></td>
+							<td class="big"><%=(objRBox.Fields("hp1TOs").Value)%></td>
 
 						<%if CDbl(objRBox.Fields("hp1Barps").Value) = 0 then %>
 							<td class="big"><%=(objRBox.Fields("hp1Barps").Value)%></td>								
 						<%elseif CDbl(objRBox.Fields("hp1Barps").Value) > CDbl(compareBarpsHigh) then%>
 							<td class="big"><span><i class="fas fa-fire fire"></i>&nbsp;<%=(objRBox.Fields("hp1Barps").Value)%></span></td>
 						<%elseif CDbl(objRBox.Fields("hp1Barps").Value) < CDbl(compareBarpsLow) then%>
-							<td class="big"><i class="far fa-snowflake" style="color:cornflowerblue;font-weight:bold;"></i>&nbsp;<%=(objRBox.Fields("hp1Barps").Value)%></td>
+							<td class="big"><i class="far fa-snowflake" style="color:cornflowerblue;font-weight:bold;"></i>&nbsp;<%=(round(objRBox.Fields("hp1Barps").Value,2))%></td>
 						<%else%>
-							<td class="big"><%=(objRBox.Fields("hp1Barps").Value)%></td>
-						<%end if%>
-						
+							<td class="big"><%=(round(objRBox.Fields("hp1Barps").Value,2))%></td>
+						<%end if%>						
 					</tr>
 
-				 <tr style="font-size:11px;font-weight:normal;background-color:black;color:white;">	
+				 <tr style="font-weight:normal;background-color:black;color:white;">	
 					<% if hp2Last = false then %>
 						<td class="opp big" style="text-align:left">
 							<i class="fas fa-user-alt-slash big"></i>
 						</td>
 					<%else %>
-						<td class="big" style="font-size:11px;color:#01579B;font-weight:bold;text-align:left;">
+						<td class="big" style="color:#01579B;font-weight:bold;text-align:left;">
 							<a class="white" href="playerprofile.asp?pid=<%=hp2PID %>"><%=left(hp2Last,11)%></a>						
 						</td>
 						<%     
@@ -725,6 +725,7 @@
 						objRSBarps.Close					
 						%>
 					<%end if%>
+						<td class="big" style="color:white;"><%=(objRBox.Fields("hp2MP").Value)%></td>
 						<% if tbonushp2 >= 3 and CInt(objRBox.Fields("hp2BLK").Value) >=10 then %>
 							<td class="big" style="background-color:darkorange;color: white;font-weight:bold;border: black;border-style: solid;    border-width: thin;"><%=(objRBox.Fields("hp2BLK").Value)%></td>
 						<%else%>
@@ -769,16 +770,16 @@
 						<%elseif CDbl(objRBox.Fields("hp2Barps").Value) < CDbl(compareBarpsLow) then%>
 							<td class="big"><i class="far fa-snowflake" style="color:cornflowerblue;font-weight:bold;"></i>&nbsp;<%=(objRBox.Fields("hp2Barps").Value)%></td>
 						<%else%>
-							<td class="big"><%=(objRBox.Fields("hp2Barps").Value)%></td>
+							<td class="big"><%=(round(objRBox.Fields("hp2Barps").Value,2))%></td>
 						<%end if%>
 					</tr>
-					<tr style="font-size:11px;font-weight:normal;background-color:black;color:white;">	
+					<tr style="font-weight:normal;background-color:black;color:white;">	
 					<% if hp3Last = false then %>
 						<td class="opp big" style="text-align:left">
 							<i class="fas fa-user-alt-slash big"></i>
 						</td>
 					<%else %>
-						<td class="big" style="font-size:11px;color:#01579B;font-weight:bold;text-align:left;">
+						<td class="big" style="color:#01579B;font-weight:bold;text-align:left;">
 							<a class="white" href="playerprofile.asp?pid=<%=hp3PID %>"><%=left(hp3Last,11)%></a>						
 						</td>
 						<%     
@@ -794,6 +795,7 @@
 						objRSBarps.Close					
 						%>
 					<%end if%>
+						<td class="big" style="color:white;"><%=(objRBox.Fields("hp3MP").Value)%></td>
 						<% if tbonushp3 >= 3 and CInt(objRBox.Fields("hp3BLK").Value) >=10 then %>
 							<td class="big" style="background-color:darkorange;color: white;font-weight:bold;border: black;border-style: solid;    border-width: thin;"><%=(objRBox.Fields("hp3BLK").Value)%></td>
 						<%else%>
@@ -836,18 +838,18 @@
 						<%elseif CDbl(objRBox.Fields("hp3Barps").Value) > CDbl(compareBarpsHigh) then%>
 							<td class="big"><span><i class="fas fa-fire fire"></i>&nbsp;<%=(objRBox.Fields("hp3Barps").Value)%></span></td>
 						<%elseif CDbl(objRBox.Fields("hp3Barps").Value) < CDbl(compareBarpsLow) then%>
-							<td class="big"><i class="far fa-snowflake" style="color:cornflowerblue;font-weight:bold;"></i>&nbsp;<%=(objRBox.Fields("hp3Barps").Value)%></td>
+							<td class="big"><i class="far fa-snowflake" style="color:cornflowerblue;font-weight:bold;"></i>&nbsp;<%=(round(objRBox.Fields("hp3Barps").Value,2))%></td>
 						<%else%>
-							<td class="big"><%=(objRBox.Fields("hp3Barps").Value)%></td>
+							<td class="big"><%=(round(objRBox.Fields("hp3Barps").Value,2))%></td>
 						<%end if%>
 					</tr>
-				  <tr style="font-size:11px;font-weight:normal;background-color:black;color:white;">	
+				  <tr style="font-weight:normal;background-color:black;color:white;">	
 					<% if hp4Last = false then %>
 						<td class="opp big" style="text-align:left">
 							<i class="fas fa-user-alt-slash big"></i>
 						</td>
 					<%else %>
-						<td class="big" style="font-size:11px;color:#01579B;font-weight:bold;text-align:left;">
+						<td class="big" style="color:#01579B;font-weight:bold;text-align:left;">
 							<a class="white" href="playerprofile.asp?pid=<%=hp4PID %>"><%=left(hp4Last,11)%></a>						
 						</td>
 						<%     
@@ -863,6 +865,7 @@
 						objRSBarps.Close					
 						%>
 					<%end if%>
+						<td class="big" style="color:white;"><%=(objRBox.Fields("hp4MP").Value)%></td>
 						<% if tbonushp4 >= 3 and CInt(objRBox.Fields("hp4BLK").Value) >=10 then %>
 							<td class="big" style="background-color:darkorange;color: white;font-weight:bold;border: black;border-style: solid;    border-width: thin;"><%=(objRBox.Fields("hp4BLK").Value)%></td>
 						<%else%>
@@ -910,13 +913,13 @@
 							<td class="big"><%=(objRBox.Fields("hp4Barps").Value)%></td>
 						<%end if%>
 					</tr>
-				  <tr style="font-size:11px;font-weight:normal;background-color:black;color:white;">		
+				  <tr style="font-weight:normal;background-color:black;color:white;">		
 					<% if hp5Last = false then %>
 						<td class="opp big" style="text-align:left">
 							<i class="fas fa-user-alt-slash big"></i>
 						</td>
 					<%else %>
-						<td class="big" style="font-size:11px;color:#01579B;font-weight:bold;text-align:left;">
+						<td class="big" style="color:#01579B;font-weight:bold;text-align:left;">
 							<a class="white" href="playerprofile.asp?pid=<%=hp5PID %>"><%=left(hp5Last,11)%></a>						
 						</td>
 						<%     
@@ -932,6 +935,7 @@
 						objRSBarps.Close					
 						%>
 					<%end if%>
+						<td class="big" style="color:white;"><%=(objRBox.Fields("hp5MP").Value)%></td>
 						<% if tbonushp5 >= 3 and CInt(objRBox.Fields("hp5BLK").Value) >=10 then %>
 							<td class="big" style="background-color:darkorange;color: white;font-weight:bold;border: black;border-style: solid;    border-width: thin;"><%=(objRBox.Fields("hp5BLK").Value)%></td>
 						<%else%>
@@ -980,43 +984,45 @@
 						<%end if%>
 					</tr>
 					<% if (hscore > ascore) or (htToWon = true) or (htStlWon = true) or (ht3Won = true) then%>
-						<tr style="font-size:11px;text-align:center;vertical-align:middle;font-weight:700;background-color:#468847;color:white">	
+						<tr style="text-align:center;vertical-align:middle;font-weight:700;background-color:#468847;color:white">	
 					<%else%>
-						<tr style="font-size:11px;text-align:center;vertical-align:middle;font-weight:700;background-color:white">	
+						<tr style="text-align:center;vertical-align:middle;font-weight:700;background-color:white">	
 					<%end if%>
 					<% if homePen > 0 then %>
-          <td class="big" style="vertical-align:middle;" width="20%">PENALTY</td>
+          <td class="big" style="width:20%">PENALTY</td>
 					<%else%>
-          <td class="big" style="vertical-align:middle;" width="20%">TEAM</td>
-					<%end if%>		
-					<%if htBlkWon = true then %>
-          <td class="big" style="vertical-align:middle;"><span class="badgeTie"><%=(objRBox.Fields("htotBLK").Value)%></span></td>	
-					<%else%>
-          <td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("htotBLK").Value)%></td>
+          <td class="big" style="width:20%">TEAM</td>
 					<%end if%>
-          <td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("htotASS").Value)%></td>
-          <td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("htotRBS").Value)%></td>
-          <td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("htotPTS").Value)%></td>
+					<td class="big"><i class="fas fa-clock"></i></td>					
+					<%if htBlkWon = true then %>
+          <td class="big"><span class="badgeTie"><%=(objRBox.Fields("htotBLK").Value)%></span></td>	
+					<%else%>
+          <td class="big"><%=(objRBox.Fields("htotBLK").Value)%></td>
+					<%end if%>
+          <td class="big"><%=(objRBox.Fields("htotASS").Value)%></td>
+          <td class="big"><%=(objRBox.Fields("htotRBS").Value)%></td>
+          <td class="big"><%=(objRBox.Fields("htotPTS").Value)%></td>
 					<%if htStlWon = true then %>
-          <td class="big" style="vertical-align:middle;"><span class="badgeTie"><%=(objRBox.Fields("htotSTL").Value)%></span></td>
+          <td class="big"><span class="badgeTie"><%=(objRBox.Fields("htotSTL").Value)%></span></td>
 					<%else%>
-          <td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("htotSTL").Value)%></td>
+          <td class="big"><%=(objRBox.Fields("htotSTL").Value)%></td>
 					<%end if %>
-					<td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("htot3S").Value)%></td>
+					<td class="big"><%=(objRBox.Fields("htot3S").Value)%></td>
 					<% if htToWon = true then %>
-          <td class="big" style="vertical-align:middle;"><span class="badgeTie"><%=(objRBox.Fields("htotTOs").Value)%></span></td>
+          <td class="big"><span class="badgeTie"><%=(objRBox.Fields("htotTOs").Value)%></span></td>
 					<%else %>
-          <td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("htotTOs").Value)%></td>
+          <td class="big"><%=(objRBox.Fields("htotTOs").Value)%></td>
 					<%end if %>
-						<% if (hscore > ascore) or (htToWon = true) or (htStlWon = true) or (ht3Won = true) then%>
-					<td class="big" style="vertical-align:middle;text-align:center;background-color:#468847;;color:white;"><% =(objRBox.Fields("htotBarps").Value)%></td>
+					<% if (hscore > ascore) or (htToWon = true) or (htStlWon = true) or (ht3Won = true) then%>
+						<td class="big" style="vertical-align:middle;text-align:center;background-color:#468847;;color:white;"><% =(objRBox.Fields("htotBarps").Value)%></td>
 					<%else%>
-						<td class="big"  style="vertical-align:middle;text-align:center;background-color:white"><% =(objRBox.Fields("htotBarps").Value)%></td>
-				
+						<td class="big" style="vertical-align:middle;text-align:center;background-color:white"><% =(objRBox.Fields("htotBarps").Value)%></td>				
 					<%end if%>
         </tr>          
       </table>
 	  </div>
+
+
 		<div class="div.contained_table">
 			<table class="table table-custom table-responsive  table-condensed table-bordered">
 		<% if (ascore > hscore) or (atToWon = true) or (atStlWon = true) or (at3Won = true) then %>
@@ -1030,24 +1036,25 @@
 			<%end if%>
 				<thead>
 					<tr style="background-color:white;font-weight:bold;color:black;">
-						<td class="big" style="vertical-align:middle;text-align:center;width:22%;"><span style="color:black;">PLAYER</span></td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:8%"><span style="color:black;">B</span>LK</td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:8%"><span style="color:black;">A</span>ST</td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:8%"><span style="color:black;">R</span>EB</td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:10%"><span style="color:black;">P</span>TS</td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:8%"><span style="color:black;">S</span>TL</td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:8%"><span style="color:black;">3</span>PT</td>
-						<td class="big" style="vertical-align:middle;text-align:center;width:8%"><span style="color:black;">T</span>O</td>	
-						<th class="big" width:20%;"><span style="color:black;"><i class="fas fa-basketball-hoop"></i></th>			
+						<td class="big" style="vertical-align:middle;text-align:center;width:20%;"><span style="color:black;">PLAYER</span></td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:6%;"><span style="color:black;">M</span></td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:8%;"><span style="color:black;">B</td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:8%;"><span style="color:black;">A</td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:8%;"><span style="color:black;">R</td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:10%;"><span style="color:black;">P</td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:8%;"><span style="color:black;">S</td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:8%;"><span style="color:black;">3</td>
+						<td class="big" style="vertical-align:middle;text-align:center;width:8%;"><span style="color:black;">T</td>	
+						<th class="big"><span style="color:black;width:16%;"><i class="fas fa-basketball-hoop"></i></th>			
 					</tr>
 				</thead>
-				 <tr style="font-size:11px;font-weight:normal;background-color:black;color:white;">	
+				 <tr style="font-weight:normal;background-color:black;color:white;">	
 					<%if ap1Last = false then %>
 						<td class="opp big" style="text-align:left">
 							<i class="fas fa-user-alt-slash big"></i>
 						</td>
 					<%else %>
-						<td class="big" style="font-size:11px;color:#01579B;font-weight:bold;text-align:left;">
+						<td class="big" style="color:#01579B;font-weight:bold;text-align:left;">
 							<a class="white" href="playerprofile.asp?pid=<%=ap1PID %>"><%=left(ap1Last,11)%></a>						
 						</td>
 						<%     
@@ -1064,6 +1071,7 @@
 						%>
 						
 					<%end if%>
+ 					 <td class="big" style="color:white;"><%=(objRBox.Fields("ap1MP").Value)%></td>
 						<% if tbonusap1 >= 3 and CInt(objRBox.Fields("ap1BLK").Value) >=10 then %>
 							<td class="big" style="background-color:darkorange;color: white;font-weight:bold;border: black;border-style: solid;    border-width: thin;"><%=(objRBox.Fields("ap1BLK").Value)%></td>
 						<%else%>
@@ -1113,7 +1121,7 @@
 						<%end if%>
 					
 					</tr>
-				 <tr style="font-size:11px;font-weight:normal;background-color:black;color:white;">	
+				 <tr style="font-weight:normal;background-color:black;color:white;">	
 					<% if ap2Last = false then %>
 						<td class="opp big" style="text-align:left">
 							<i class="fas fa-user-alt-slash big"></i>
@@ -1135,6 +1143,7 @@
 						objRSBarps.Close					
 						%>
 					<%end if %>
+ 					 <td class="big" style="color:white;"><%=(objRBox.Fields("ap2MP").Value)%></td>
 						<% if tbonusAP2 >= 3 and CInt(objRBox.Fields("ap2BLK").Value) >=10 then %>
 							<td class="big" style="background-color:darkorange;color: white;font-weight:bold;border: black;border-style: solid;    border-width: thin;"><%=(objRBox.Fields("ap2BLK").Value)%></td>
 						<%else%>
@@ -1182,7 +1191,7 @@
 							<td class="big"><%=(objRBox.Fields("ap2Barps").Value)%></td>
 						<%end if%>
 					</tr>
-				  <tr style="font-size:11px;font-weight:normal;background-color:black;color:white;">	
+				  <tr style="font-weight:normal;background-color:black;color:white;">	
 					<% if ap3Last = false then %>
 						<td class="opp big" style="text-align:left">
 							<i class="fas fa-user-alt-slash big"></i>
@@ -1204,6 +1213,7 @@
 						objRSBarps.Close					
 						%>
 					<%end if %>
+  					 <td class="big" style="color:white;"><%=(objRBox.Fields("ap3MP").Value)%></td>
 						<% if tbonusap3 >= 3 and CInt(objRBox.Fields("ap3BLK").Value) >=10 then %>
 							<td class="big" style="background-color:darkorange;color: white;font-weight:bold;border: black;border-style: solid;    border-width: thin;"><%=(objRBox.Fields("ap3BLK").Value)%></td>
 						<%else%>
@@ -1251,7 +1261,7 @@
 							<td class="big"><%=(objRBox.Fields("ap3Barps").Value)%></td>
 						<%end if%>
 					</tr>
-				 <tr style="font-size:11px;font-weight:normal;background-color:black;color:white;">	
+				 <tr style="font-weight:normal;background-color:black;color:white;">	
 					<% if ap4Last = false then %>
 						<td class="opp big" style="text-align:left">
 							<i class="fas fa-user-alt-slash big"></i>
@@ -1273,6 +1283,7 @@
 						objRSBarps.Close					
 						%>
 					<%end if %>
+ 					 <td class="big" style="color:white;"><%=(objRBox.Fields("ap4MP").Value)%></td>
 						<% if tbonusap4 >= 3 and CInt(objRBox.Fields("ap4BLK").Value) >=10 then %>
 							<td class="big" style="background-color:darkorange;color: white;font-weight:bold;border: black;border-style: solid;    border-width: thin;"><%=(objRBox.Fields("ap4BLK").Value)%></td>
 						<%else%>
@@ -1313,14 +1324,14 @@
 						<%if CDbl(objRBox.Fields("ap4Barps").Value) = 0 then %>
 							<td class="big"><%=(objRBox.Fields("ap4Barps").Value)%></td>								
 						<%elseif CDbl(objRBox.Fields("ap4Barps").Value) > CDbl(compareBarpsHigh) then%>
-							<td class="big"><img class="img-responsive" style="max-width:100%;height:auto;margin:0px auto;display:block;border: #111;border-width: thin;border-style: solid;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEDYljPZt4ByFLb5hKtiYGlMntgcaiPNiWujzmjPTdj49h-9XkYQ">&nbsp;<%=(objRBox.Fields("ap4Barps").Value)%></td>
+							<td class="big"><i class="fas fa-fire fire"></i>&nbsp;<%=(objRBox.Fields("ap4Barps").Value)%></td>
 						<%elseif CDbl(objRBox.Fields("ap4Barps").Value) < CDbl(compareBarpsLow) then%>
 							<td class="big"><i class="far fa-snowflake" style="color:cornflowerblue;font-weight:bold;"></i>&nbsp;<%=(objRBox.Fields("ap4Barps").Value)%></td>
 						<%else%>
 							<td class="big"><%=(objRBox.Fields("ap4Barps").Value)%></td>
 						<%end if%>
 					</tr>
-				  <tr style="font-size:11px;font-weight:normal;background-color:black;color:white;">	
+				  <tr style="font-weight:normal;background-color:black;color:white;">	
 					<% if ap5Last = false then %>
 						<td class="opp big" style="text-align:left">
 							<i class="fas fa-user-alt-slash big"></i>
@@ -1342,6 +1353,7 @@
 						objRSBarps.Close					
 						%>
 					<%end if %>
+ 					 <td class="big" style="color:white;"><%=(objRBox.Fields("ap5MP").Value)%></td>
 						<% if tbonusap5 >= 3 and CInt(objRBox.Fields("ap5BLK").Value) >=10 then %>
 							<td class="big" style="background-color:darkorange;color: white;font-weight:bold;border: black;border-style: solid;    border-width: thin;"><%=(objRBox.Fields("ap5BLK").Value)%></td>
 						<%else%>
@@ -1390,35 +1402,36 @@
 						<%end if%>
 				</tr>
 				<% if (ascore > hscore) or (atToWon = true) or (atStlWon = true) or (at3Won = true) then %>
-			  <tr style="font-size:11px;text-align:center;vertical-align:middle;font-weight:700;background-color:#468847;color:white;">		
+			  <tr style="text-align:center;vertical-align:middle;font-weight:700;background-color:#468847;color:white;">		
 				<%else%>
-				 <tr style="font-size:11px;text-align:center;vertical-align:middle;font-weight:700;background-color:white;">		
+				 <tr style="text-align:center;vertical-align:middle;font-weight:700;background-color:white;">		
 				<%end if%>	
 						<% if awayPen > 0 then %>
-						<td class="big" style="vertical-align:middle;" width="20%">PENALTY</td>
+						<td class="big" style="width:20%;">PENALTY</td>
 						<%else%>
-						<td class="big" style="vertical-align:middle;" width="20%">TEAM</td>
+						<td class="big" style="width:20%;">TEAM</td>
 						<%end if%>
-							<td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("atotBLK").Value)%></td>
-							<td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("atotASS").Value)%></td>
-							<td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("atotRBS").Value)%></td>
-							<td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("atotPTS").Value)%></td>							
+							<td class="big" ><i class="fas fa-clock"></i></td>
+							<td class="big"><%=(objRBox.Fields("atotBLK").Value)%></td>
+							<td class="big"><%=(objRBox.Fields("atotASS").Value)%></td>
+							<td class="big"><%=(objRBox.Fields("atotRBS").Value)%></td>
+							<td class="big"><%=(objRBox.Fields("atotPTS").Value)%></td>							
 							<%if atStlWon = true then %>
-							<td class="big" style="vertical-align:middle;"><span class="badgeTie"><%=(objRBox.Fields("atotSTL").Value)%></span></td>
+							<td class="big"><span class="badgeTie"><%=(objRBox.Fields("atotSTL").Value)%></span></td>
 							<%else%>
-							<td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("atotSTL").Value)%></td>
+							<td class="big"><%=(objRBox.Fields("atotSTL").Value)%></td>
 							<%end if%>
 							<%if atBlkWon = true then %>
-							<td class="big" style="vertical-align:middle;"><span class="badgeTie"><%=(objRBox.Fields("atot3S").Value)%></span></td>		
+							<td class="big"><span class="badgeTie"><%=(objRBox.Fields("atot3S").Value)%></span></td>		
 							<%else%>	
-							<td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("atot3S").Value)%></td>	
+							<td class="big"><%=(objRBox.Fields("atot3S").Value)%></td>	
 							<%end if%>
 							<% if atToWon = true then %>
-							<td class="big" style="vertical-align:middle;"><span class="badgeTie"><%=(objRBox.Fields("atotTOs").Value)%></span></td>
+							<td class="big"><span class="badgeTie"><%=(objRBox.Fields("atotTOs").Value)%></span></td>
 							<%else%>
-							<td class="big" style="vertical-align:middle;"><%=(objRBox.Fields("atotTOs").Value)%></td>
+							<td class="big"><%=(objRBox.Fields("atotTOs").Value)%></td>
 							<%end if%>
-							<td class="big" ><% =(objRBox.Fields("atotBarps").Value)%></td>
+							<td class="big"><% =(objRBox.Fields("atotBarps").Value)%></td>
 				</tr>
 			</table>
 </br>			

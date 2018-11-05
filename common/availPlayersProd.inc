@@ -22,22 +22,14 @@
 							<%end if%>
 							<br><span class="gameTip"><%= objsrAvailPlayers.Fields("opponent")%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%= wtime%></small>
 							</td>
-							<td class="big" style="vertical-align:middle;text-align: center;width:12%;" class="text-center">
-								<span class="badgeBlue"><%= round(objsrAvailPlayers.Fields ("barps").Value,0) %></span>
+							<td class="big" style="vertical-align:middle;text-align: center;width:18%;" class="text-center">
+								<span class="badgeBlue"><%= round(objsrAvailPlayers.Fields ("barps").Value,2) %></span>
 							</td>
-							<td class="big" style="vertical-align:middle;text-align:center;width:12%;">
-								<% if CDbl(objsrAvailPlayers.Fields("l5barps").Value) > CDbl(objsrAvailPlayers.Fields("barps").Value) then %>
-									<span class="badgeUp"><%= round(objsrAvailPlayers.Fields ("l5barps").Value,0) %></span>
-								<% elseif CDbl(objsrAvailPlayers.Fields("barps").Value) > CDbl(objsrAvailPlayers.Fields("l5barps").Value) then%>
-									<span class="badgeDown"><%= round(objsrAvailPlayers.Fields ("l5barps").Value,0) %></span>
-								<%else%>
-									<span class="badgeEven"><%= round(objsrAvailPlayers.Fields ("l5barps").Value,0) %></span>
-								<%end if %>														
-							</td>
-							<td class="big" style="vertical-align:middle;text-align: center;width:12%;" class="text-center">
-								<% if IsNull(objsrAvailPlayers.Fields("usage").Value)  then %>
-									<span class="badgeUsage">0</span>
-								<%else%>
-									<span class="badgeUsage"><%= round(objsrAvailPlayers.Fields("usage").Value,0) %></span>
-								<%end if%>
+							<% if CDbl(objsrAvailPlayers.Fields("l5barps").Value) > CDbl(objsrAvailPlayers.Fields("barps").Value) then %>
+								<td class="big" style="vertical-align:middle;text-align:center"><span class="badgeUp"><%= round(objsrAvailPlayers.Fields ("l5barps").Value,2) %></span>
+							<% elseif CDbl(objsrAvailPlayers.Fields("barps").Value) > CDbl(objsrAvailPlayers.Fields("l5barps").Value) then%>
+								<td class="big" style="vertical-align:middle;text-align:center;width:18%;"><span class="badgeDown"><%= round(objsrAvailPlayers.Fields ("l5barps").Value,2) %></span>
+							<%else%>
+							<td class="big" style="vertical-align:middle;text-align:center;width:18%;"><span class="badgeEven"><%= round(objsrAvailPlayers.Fields ("l5barps").Value,2) %></span>
+							<%end if %>														
 							</td>

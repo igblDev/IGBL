@@ -38,13 +38,13 @@
 					<td>
 						<table class="table table-responsive table-bordered table-condensed">
 							<tr style="text-align:left;vertical-align:middle;font-weight:700;text-transform:uppercase;color:black;">
-								<td class="big" style="width:30%;text-align:left;vertical-align:middle;"><i class="fas fa-caret-circle-right red fa-lg"></i>&nbsp;<span style="text-transform:uppercase;"><%=objRBox.Fields("hometeamshort").value%></span>&nbsp;<small><%=objrsTeamRecH.Fields("won").Value %>-<%=objrsTeamRecH.Fields("loss").Value %></small></td>
+								<td class="big" style="width:30%;text-align:left;vertical-align:middle;"><i class="fas fa-caret-circle-right red fa-lg"></i>&nbsp;<span style="text-transform:uppercase;"><%=objRBox.Fields("hometeamshort").value%></span>&nbsp;<%=objrsTeamRecH.Fields("won").Value %>-<%=objrsTeamRecH.Fields("loss").Value %></td>
 								<!--<td class="big" style="vertical-align: middle;width:13%;"><%=objrsTeamRecH.Fields("won").Value %>-<%=objrsTeamRecH.Fields("loss").Value %></td>-->
 								<td class="big" style="width:15%;background-color: black;color: #fff999;"><%=objRBox.Fields("htotBarps").value%></td>
 								<td class="big" style="width:45%;text-align:left;text-transform:none;"><i class="fas fa-basketball-ball" style="color:darkorange;"></i>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=hpid%>"><%=left(hpName,14)%></a>&nbsp;<%=hpBarps%></td>
 							</tr>
 							<tr style="text-align:left;vertical-align:middle;color:#a5a6a7;font-weight:bold;text-transform:uppercase;">	
-								<td class="big" style="width:30%;text-align:left;vertical-align:middle;color:#a5a6a7;font-weight:bold;"><%=objRBox.Fields("awayteamshort").value%>&nbsp;<small><%=objrsTeamRecA.Fields("won").Value %>-<%=objrsTeamRecA.Fields("loss").Value %></small></td>
+								<td class="big" style="width:30%;text-align:left;vertical-align:middle;color:#a5a6a7;font-weight:bold;"><%=objRBox.Fields("awayteamshort").value%>&nbsp;<%=objrsTeamRecA.Fields("won").Value %>-<%=objrsTeamRecA.Fields("loss").Value %></td>
 								<!--<td class="big" style="vertical-align: middle;width:13%;"><%=objrsTeamRecA.Fields("won").Value %>-<%=objrsTeamRecA.Fields("loss").Value %></td>-->
 								<td class="big" style="vertical-align: middle;width:15%;"><%=objRBox.Fields("atotBarps").value%></td>
 								<td class="big" style="width:45%;text-align:left;text-transform:none;"><i class="fas fa-basketball-ball" style="color:darkorange;"></i>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=apid%>"><%=left(apName,14)%></a>&nbsp;<%=apBarps%></span></td>
@@ -55,13 +55,13 @@
 					<td>
 						<table class="table table-responsive table-bordered table-condensed">
 							<tr style="text-align:left;vertical-align:middle;color:#a5a6a7;font-weight:bold;text-transform:uppercase;">
-								<td class="big" style="width:30%;text-align:left;vertical-align:middle;color:#a5a6a7;font-weight:bold;"><%=objRBox.Fields("hometeamshort").value%>&nbsp;<small><%=objrsTeamRecH.Fields("won").Value %>-<%=objrsTeamRecH.Fields("loss").Value %></small></td>
+								<td class="big" style="width:30%;text-align:left;vertical-align:middle;color:#a5a6a7;font-weight:bold;"><%=objRBox.Fields("hometeamshort").value%>&nbsp;<%=objrsTeamRecH.Fields("won").Value %>-<%=objrsTeamRecH.Fields("loss").Value %></td>
 								<!--<td class="big" style="vertical-align: middle;width:13%;"><%=objrsTeamRecH.Fields("won").Value %>-<%=objrsTeamRecH.Fields("loss").Value %></td>-->
 								<td class="big" style="vertical-align: middle;width:15%;"><%=objRBox.Fields("htotBarps").value%></td>
 								<td class="big" style="width:45%;text-align:left;text-transform:none;"><i class="fas fa-basketball-ball" style="color:darkorange;"></i>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=hpid%>"><%=left(hpName,14)%></a>&nbsp;<%=hpBarps%></td>
 							</tr>
 							<tr style="text-align:left;vertical-align:middle;font-weight:700;text-transform:uppercase;color:black;">
-								<td class="big" style="width:30%;text-align:left;vertical-align:middle;"><i class="fas fa-caret-circle-right red fa-lg"></i>&nbsp;<span style="text-transform:uppercase;"><%=objRBox.Fields("awayteamshort").value%></span>&nbsp;<small><%=objrsTeamRecA.Fields("won").Value %>-<%=objrsTeamRecA.Fields("loss").Value %></small></td>
+								<td class="big" style="width:30%;text-align:left;vertical-align:middle;"><i class="fas fa-caret-circle-right red fa-lg"></i>&nbsp;<span style="text-transform:uppercase;"><%=objRBox.Fields("awayteamshort").value%></span>&nbsp;<%=objrsTeamRecA.Fields("won").Value %>-<%=objrsTeamRecA.Fields("loss").Value %></td>
 								<!--<td class="big" style="vertical-align: middle;width:13%;"><%=objrsTeamRecA.Fields("won").Value %>-<%=objrsTeamRecA.Fields("loss").Value %></td>-->
 								<td class="big" style="width:15%;background-color: black;color: #fff999;"><%=objRBox.Fields("atotBarps").value%></td>
 								<td class="big" style="width:45%;text-align:left;text-transform:none;"><i class="fas fa-basketball-ball" style="color:darkorange;"></i>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=apid%>"><%=left(apName,14)%></a>&nbsp;<%=apBarps%></td>

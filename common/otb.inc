@@ -31,7 +31,7 @@
 					<table class="table table-bordered table-custom-black table-responsive table-condensed">
 						<tr style="background-color: #ececec;color:black">
 							<th class ="big" style="color:black;width:40%">Offered</th>
-							<th class="big" style="color:black;text-align:center;width:10%">Needs</th>
+							<th class="big" style="color:#9a1400;text-align:center;width:10%">Needs</th>
 							<th class="big" style="color:black;width:40%">Comments</th>
 						</tr>
 						<%
@@ -48,7 +48,7 @@
 						<%else%>
 						<tr>
 							<td class="big" style="text-transform: uppercase;vertical-align:middle;" colspan="3">
-								<button class="btn btn-link  btn-block btn-trades " value="Continue;<%= Trim(objRSteams.Fields("OwnerID").value) %>;<%= objRSteams.Fields("TeamName").value%>" name="Action" type="submit">Trade w/<%= objRSteams.Fields("TeamName").value%>&nbsp;<small>(<%= objRSteams.Fields("ShortNAme").Value%>)</small>
+								<button class="btn btn-block btn-trades " value="Continue;<%= Trim(objRSteams.Fields("OwnerID").value) %>;<%= objRSteams.Fields("TeamName").value%>" name="Action" type="submit">Trade w/<%= objRSteams.Fields("TeamName").value%>&nbsp;<small><span style="color:white;text-transform:uppercase;">[<%= objRSteams.Fields("ShortNAme").Value%>]</span></small>
 							</td>
 						</tr>
 						<%end if %>
@@ -133,11 +133,11 @@
 					<table class="table table-custom-black  table-bordered table-condensed">
 				<% if objRSteams.Fields("ontheblockall").Value = true then%>
 					<tr>
-						<th style="color:black;text-transform:capitalize;"  colspan="2" class="info">My Block <input type="checkbox" name="chkAllPlayers" checked onClick="toggle(this)" /> Check All</th>
+						<th style="color:black;text-transform:capitalize;text-align:left;"  colspan="2" class="info">My Block <input type="checkbox" name="chkAllPlayers" checked onClick="toggle(this)" /> Check All</th>
 					</tr>
 				<% else %>
 					<tr>
-						<th style="color:black;text-transform:capitalize;"  colspan="2" class="info">My Block <input type="checkbox"  name="chkAllPlayers" onClick="toggle(this)" /> Check All</th>
+						<th style="color:black;text-transform:capitalize;text-align:left;"  colspan="2" class="info">My Block <input type="checkbox"  name="chkAllPlayers" onClick="toggle(this)" /> Check All</th>
 					</tr>
 					<%end if%>
 					<%
@@ -195,7 +195,7 @@
 																	"FROM tblowners WHERE ownerid = " & ownerid & " ", objConn
 					%>
 					<tr>
-						<th style="color:black;"  colspan="4" class="info">My Needs</th>
+						<th style="color:black;text-align:left;" colspan="4" class="info">My Needs</th>
 					</tr>
 					<tr>
 						<td class="big" colspan="2" style="width:5%;text-align:left">

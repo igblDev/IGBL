@@ -235,7 +235,9 @@ td {
 }
 .mark, mark {
     padding: .2em;
-    background-color: yellow;
+    background-color: green;
+    color: white;
+    font-weight: bold;
 }
 span.orangeText {
     font-weight: bold;
@@ -279,16 +281,19 @@ span.orangeText {
 			<ul class="nav nav-tabs">
 			 <% if sAction = "Reforecast" or sAction = "ReforecastAdd" then %>
 				<li><a data-toggle="tab" href="#matchups"><i class="far fa-ticket-alt"></i>&nbsp;Matchups</a></li>
-				<li class="active"><a data-toggle="tab" href="#VS"><i class="far fa-chart-line"></i>&nbsp;Forecasted</a></li>
+				<li class="active"><a data-toggle="tab" href="#VS"><i class="far fa-chart-line"></i>&nbsp;Forecast</a></li>
 				<li><a data-toggle="tab" href="#mine"><i class="fal fa-file-alt"></i>&nbsp;My Lineups</a></li>	
+				<li><a data-toggle="tab" href="#nbaSked"><i class="fal fa-calendar-alt"></i>&nbsp;Sked</a></li>		
 			 <%elseif sAction = "Submit Lineup" then %>
 				<li><a data-toggle="tab" href="#matchups"><i class="far fa-ticket-alt"></i>&nbsp;Matchups</a></li>
-				<li><a data-toggle="tab" href="#VS"><i class="far fa-chart-line"></i>&nbsp;Forecasted</a></li>
-				<li class="active"><a data-toggle="tab" href="#mine"><i class="fal fa-file-alt"></i>&nbsp;My Lineups</a></li>						
+				<li><a data-toggle="tab" href="#VS"><i class="far fa-chart-line"></i>&nbsp;Forecast</a></li>
+				<li class="active"><a data-toggle="tab" href="#mine"><i class="fal fa-file-alt"></i>&nbsp;My Lineups</a></li>	
+				<li><a data-toggle="tab" href="#nbaSked"><i class="fal fa-calendar-alt"></i>&nbsp;Sked</a></li>						
 			 <%else %>
 				<li class="active"><a data-toggle="tab" href="#matchups"><i class="far fa-ticket-alt"></i>&nbsp;Matchups</a></li>
-				<li><a data-toggle="tab" href="#VS"><i class="far fa-chart-line"></i>&nbsp;Forecasted</a></li>
-				<li><a data-toggle="tab" href="#mine"><i class="fal fa-file-alt"></i>&nbsp;Lineups</a></li>			 
+				<li><a data-toggle="tab" href="#VS"><i class="far fa-chart-line"></i>&nbsp;Forecast</a></li>
+				<li><a data-toggle="tab" href="#mine"><i class="fal fa-file-alt"></i>&nbsp;Lineups</a></li>	
+				<li><a data-toggle="tab" href="#nbaSked"><i class="fal fa-calendar-alt"></i>&nbsp;Sked</a></li>						
 			 <%end if%>
 			</ul>
 		</div>
@@ -897,19 +902,19 @@ span.orangeText {
 
 						<table class="table table-custom-black table-bordered table-condensed">
 							<tr style="text-align:center;vertical-align:middle;background-color:black;font-weight:bold;">
-								<td style="color:#a89a7a;">Active Player Count: <span style="color:white;"><%=homePlayerCnt%></span></td>
-								<td style="color:#a89a7a;">Active Player Count: <span style="color:white;"><%=awayPlayerCnt%></span></td>
+								<td class="big" style="color:#a89a7a;">Active Player Count: <span style="color:white;"><%=homePlayerCnt%></span></td>
+								<td class="big" style="color:#a89a7a;">Active Player Count: <span style="color:white;"><%=awayPlayerCnt%></span></td>
 							</tr>
 							<tr  style="background-color:white;text-align:center;vertical-align:middle">
 								<% if hometeampen = true Then %>
-									<td style="width:50%" align="center"><img class="img-responsive" src="images/penalty.png" style="width:151x;height:100px;"></td>
+									<td class="big" style="width:50%" align="center"><img class="img-responsive" src="images/penalty.png" style="width:151x;height:100px;"></td>
 								<% else %>
-									<td style="width:50%" align="center"><img class="img-responsive" src="<%=homeLogo%>" style="width:151x;height:100px;"></td>
+									<td class="big" style="width:50%" align="center"><img class="img-responsive" src="<%=homeLogo%>" style="width:151x;height:100px;"></td>
 								<%end if %>
 								<% if awayteampen = true Then %>
-									<td style="width:50%" align="center"><img class="img-responsive" src="images/penalty.png" style="width:151x;height:100px;"></td>
+									<td class="big" style="width:50%" align="center"><img class="img-responsive" src="images/penalty.png" style="width:151x;height:100px;"></td>
 								<% else %>
-									<td style="width:50%" align="center"><img class="img-responsive" src="<%=awayLogo%>" style="width:151x;height:100px;"></td>
+									<td class="big" style="width:50%" align="center"><img class="img-responsive" src="<%=awayLogo%>" style="width:151x;height:100px;"></td>
 								<%end if %>
 							</tr>
 						</table>
@@ -919,33 +924,33 @@ span.orangeText {
 								<% if hometeampen = true Then %>
 								<table class="table table-custom-black table-responsive table-condensed">
 									<tr>
-										<th class="text-center" style="vertical-align:middle;color:#9a1400;"><%=hometeamShort%></br><%=homerec%></th>
+										<th class="text-center big" style="vertical-align:middle;color:#9a1400;"><%=hometeamShort%></br><%=homerec%></th>
 									</tr>
 								</table>
 							<% else %>
 								<table class="table table-custom table-responsive table-condensed">
 									<tr>
-										<th class="text-center" style="vertical-align:middle;"><%=hometeamShort%><br><%=homerec%></th>
+										<th class="text-center big" style="vertical-align:middle;"><%=hometeamShort%><br><%=homerec%></th>
 									</tr>
 								</table>
 							<%end if %>	
 							</td>
 							<%if CDbl(atBarps) > CDbl(htBarps) then%>
-							<td style="width:25%;">proj.</br><span class="badgeDown"><%=round(htBarps,2)%></span></td>
+							<td class="big" style="width:25%;">proj.</br><span class="badgeDown"><%=round(htBarps,2)%></span></td>
 							<%elseif CDbl(htBarps) > CDbl(atBarps) then%>
-							<td style="width:25%;">proj.</br><span class="badgeUp"><%=round(htBarps,2)%></span></td>
+							<td class="big" style="width:25%;">proj.</br><span class="badgeUp"><%=round(htBarps,2)%></span></td>
 							<%else%>
-							<td style="width:25%;">proj.</br><span class="badgeEven"><%=round(htBarps,2)%></span></td>
+							<td class="big" style="width:25%;">proj.</br><span class="badgeEven"><%=round(htBarps,2)%></span></td>
 							<%end if%>
 
 							<%if CDbl(atBarps) > CDbl(htBarps) then%>
-							<td style="width:25%;">proj.</br><span class="badgeUp"><%=round(atBarps,2)%></span></td>
+							<td class="big" style="width:25%;">proj.</br><span class="badgeUp"><%=round(atBarps,2)%></span></td>
 							<%elseif CDbl(htBarps) > CDbl(atBarps) then%>
-							<td style="width:25%;">proj.</br><span class="badgeDown"><%=round(atBarps,2)%></span></td>
+							<td class="big" style="width:25%;">proj.</br><span class="badgeDown"><%=round(atBarps,2)%></span></td>
 							<%else%>
-							<td style="width:25%;">proj.</br><span class="badgeEven"><%=round(atBarps,2)%></span></td>
+							<td class="big" style="width:25%;">proj.</br><span class="badgeEven"><%=round(atBarps,2)%></span></td>
 							<%end if%>	
-							<td style="width:25%">
+							<td class="big" style="width:25%">
 								<% if awayteampen = true Then %>
 										<table class="table table-custom table-responsive table-condensed">
 									<tr>
@@ -955,7 +960,7 @@ span.orangeText {
 								<%else %>
 									<table class="table table-custom table-responsive table-condensed">
 										<tr>
-											<th class="text-center" style="vertical-align:middle;"><%=awayteamShort%><br><%=awayrec%></th>
+											<th class="text-center big" style="vertical-align:middle;"><%=awayteamShort%><br><%=awayrec%></th>
 										</tr>
 									</table>								
 								<% end if%>
@@ -966,7 +971,7 @@ span.orangeText {
 					<!-- CENTERS -->	
 					<tr style="vertical-align:middle;background-color:white;">						
 						<%if CenterHomeN = "***CEN***" then%>
-						<td class="text-left" style="color:white;background-color:#9a1400;width:50%;">
+						<td class="text-left big" style="color:white;background-color:#9a1400;width:50%;">
 							<redIcon2><i class="fas fa-user-slash"></i></redIcon2></br>
 							<small><%=CenterHomeOpp %>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hCenTip%></small>
 						</td>	
@@ -976,24 +981,24 @@ span.orangeText {
 							<small><%=CenterHomeOpp %>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hCenTip%></small>
 						</td>							
 						<%else%>
-						<td class="text-left" style="width:50%;">
+						<td class="text-left big" style="width:50%;">
 							<span class="orangeText">CEN</span>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=sCenterHome %>"><%=(left(CenterHomeNF,1))%>.&nbsp;<%=CenterHomeN %></a>&nbsp;<%=HCenBarps%></br>	
 							<span class="gameTip"><small><%=CenterHomeOpp %>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hCenTip%></small></span>
 						</td>
 						<%end if%>					
 						<!-- CENTER 2-->						
 						<%if CenterAwayNL = "***CEN***" then%>
-							<td class="text-left" style="color:white;background-color:#9a1400;width:50%;">
+							<td class="text-left big" style="color:white;background-color:#9a1400;width:50%;">
 							<redIcon2><i class="fas fa-user-slash"></i></redIcon2></br>
 							<small><%=CenterAwayOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=cTip%></small>
 						</td>	
 						<%elseif awayCenTipDeadlinePassed then%>
 						<td class="text-left  big" style="width:50%;background-color:black;color:#a89a7a;font-weight:bold;">
-							<span style="color:white;">CEN</span>&nbsp;<span style="font-weight:bold;color:yellowgreen;"><%=CenterAwayNF %>.&nbsp;<%=CenterAwayNL %></span><br>
+							<span style="color:white;">CEN</span>&nbsp;<span style="font-weight:bold;color:yellowgreen;"><%=left(CenterAwayNF,1) %>.&nbsp;<%=CenterAwayNL %></span><br>
 							<small><%=CenterAwayOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=cTip%></small>		
 						</td>			
 						<%else%>
-						<td class="text-left" style="width:50%;">
+						<td class="text-left big" style="width:50%;">
 							<span class="orangeText">CEN</span>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=sCenterAway %>"><%=(left(CenterAwayNF,1))%>.&nbsp;<%=CenterAwayNL %></a>&nbsp;<%=ACenBarps%></br>
 							<span class="gameTip"><small><%=CenterAwayOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=cTip%></small></span>
 						</td>
@@ -1002,7 +1007,7 @@ span.orangeText {
 					<!-- FORWARD 1 -->	
 					<tr style="vertical-align:middle;background-color:white;">
 						<%if Forward1HomeN = "***FOR***"   then%>
-							<td class="text-left" style="color:white;background-color:#9a1400;width:50%;">
+							<td class="text-left big" style="color:white;background-color:#9a1400;width:50%;">
 								<redIcon2><i class="fas fa-user-slash"></i></redIcon2><br>
 								<small><%=Forward1HomeOpp  %>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hForTip%></small>
 							</td>
@@ -1012,61 +1017,61 @@ span.orangeText {
 								<small><%=Forward1HomeOpp  %>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hForTip%></small>
 							</td>					
 						<%else%>
-							<td class="text-left">
+							<td class="text-left big">
 								<span class="orangeText">FOR</span>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=sForward1Home %>"><%=(left(Forward1HomeNF,1))%>.&nbsp;<%=Forward1HomeN %></a>&nbsp;<%=HFor1Barps%></br>
 								<span class="gameTip"><small><%=Forward1HomeOpp  %>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hForTip%></small></span>
 							</td>
 						<%end if%>
 						
 						<%if Forward1Away = "***FOR***" then%>
-							<td class="text-left" style="color:white;background-color:#9a1400;width:50%;">
+							<td class="text-left big" style="color:white;background-color:#9a1400;width:50%;">
 								<redIcon2><i class="fas fa-user-slash"></i></redIcon2><br>
 								<small><%=Forward1AwayOpp %>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=for1Tip%></small>
 							</td>
 						<%elseif awayFor1TipDeadlinePassed then%>
-						  <td class="text-left  big" style="background-color:black;color: #a89a7a;font-weight:bold;">
+						  <td class="text-left big" style="background-color:black;color: #a89a7a;font-weight:bold;">
 								<span style="color:white;">FOR</span>&nbsp;<span style="font-weight:bold;color:yellowgreen;"><%=left(Forward1AwayNF,1) %>.&nbsp;<%=Forward1Away %></span><br>
 								<small><%=Forward1AwayOpp  %>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=for1Tip%></small>
 							</td>
 						<%else%>
-							<td class="text-left">
+							<td class="text-left big">
 								<span class="orangeText">FOR</span>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=sForward1Away %>"><%=(left(Forward1AwayNF,1))%>.&nbsp;<%=Forward1Away %></a>&nbsp;<%=AFor1Barps%></br>								
-								<span class="gameTip"><small><%=Forward1AwayOpp  %>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=for1Tip%></small></span>
+								<span class="gameTip"><small><%=Forward1AwayOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=for1Tip%></small></span>
 							</td>
 						<%end if%>						
 					</tr>
 					<!-- FORWARD 2 -->	
 					<tr style="vertical-align:middle;background-color:white;">					
 						<% if Forward2HomeN = "***FOR***" then  %>
-						<td class="text-left" style="color:white;background-color:#9a1400;width:50%;">
+						<td class="text-left big" style="color:white;background-color:#9a1400;width:50%;">
 							<redIcon2><i class="fas fa-user-slash"></i></redIcon2><br>
 							<small><%=Forward2HomeOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hFor2Tip%></small>
 						</td>
 						<%elseif homeFor2TipDeadlinePassed then %>
-						<td class="text-left  big" style="background-color:black;color: #a89a7a;font-weight:bold;">
+						<td class="text-left big" style="background-color:black;color: #a89a7a;font-weight:bold;">
 							<span style="color:white;">FOR</span>&nbsp;<span style="font-weight:bold;color:yellowgreen;"><%=left(Forward2HomeNF,1) %>.&nbsp;<%=Forward2HomeN %></span><br>
 							<small><%=Forward2HomeOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hFor2Tip%></small>
 						</td>
 						<%else%>
-						<td class="text-left">
+						<td class="text-left big">
 							<span class="orangeText">FOR</span>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=sForward2Home %>"><%=(left(Forward2HomeNF,1))%>.&nbsp;<%=Forward2HomeN %></a>&nbsp;<%=HFor2Barps%></br>							
 							<span class="gameTip"><small><%=Forward2HomeOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hFor2Tip%></small></span>
 						</td>
 						<%end if %>
 
 						<% if Forward2Away = "***FOR***" then  %>
-						<td class="text-left" style="color:white;background-color:#9a1400;width:50%;">
+						<td class="text-left big" style="color:white;background-color:#9a1400;width:50%;">
 							<redIcon2><i class="fas fa-user-slash"></i></redIcon2></br>
 							<small><%=Forward2AwayOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=for2Tip%></small>
 						</td>	
 						<%elseif awayFor2TipDeadlinePassed then%>
-						<td class="text-left  big" style="background-color:black;color: #a89a7a;font-weight:bold;">
-							<span style="color:white;">FOR</span>&nbsp;<span style="font-weight:bold;color:yellowgreen;"><%=Forward2AwayNF %>.&nbsp;<%=Forward2Away %></span><br>
+						<td class="text-left big" style="background-color:black;color: #a89a7a;font-weight:bold;">
+							<span style="color:white;">FOR</span>&nbsp;<span style="font-weight:bold;color:yellowgreen;"><%=left(Forward2AwayNF,1)%>.&nbsp;<%=Forward2Away %></span><br>
 							<small><%=Forward2AwayOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=for2Tip%></small>
 						</td>	
 						<%else%>
-						<td class="text-left">
-							<span class="orangeText">FOR</span>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=sForward2Away %>"><%=(left(Forward2AwayNF,1))%>&nbsp;<%=Forward2Away %></a>&nbsp;<%=AFor2Barps%></br>							
+						<td class="text-left big">
+							<span class="orangeText">FOR</span>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=sForward2Away %>"><%=(left(Forward2AwayNF,1))%>.&nbsp;<%=Forward2Away %></a>&nbsp;<%=AFor2Barps%></br>							
 							<span class="gameTip"><small><%=Forward2AwayOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=for2Tip%></small></span>
 						</td>	
 						<%end if %>						
@@ -1074,17 +1079,17 @@ span.orangeText {
 					<!--GUARDS 1  -->
 					<tr style="vertical-align:middle;background-color:white;">
   					<%if Guard1HomeN = "***GUA***" then%>
-						<td class="text-left" style="color:white;background-color:#9a1400;width:50%;">
+						<td class="text-left big" style="color:white;background-color:#9a1400;width:50%;">
 							<redIcon2><i class="fas fa-user-slash"></i></redIcon2></br>
 							<%=Guard1HomeOpp  %>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hGuaTip%>
 						</td>
 						<%elseif homeGua1TipDeadlinePassed then %>
-					 <td class="text-left  big" style="background-color:black;color: #a89a7a;font-weight:bold;">
+					 <td class="text-left big" style="background-color:black;color: #a89a7a;font-weight:bold;">
 							<span style="color:white;">GUA</span>&nbsp;<span style="font-weight:bold;color:yellowgreen;"><%=left(Guard1HomeNF,1) %>.&nbsp;<%=Guard1HomeN %></span><br>
 							<small><%=Guard1HomeOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hGuaTip%>
 						</td>						
 						<%else%>
-						<td class="text-left">
+						<td class="text-left big">
 							<span class="orangeText">GUA</span>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=sGuard1Home %>"><%=(left(Guard1HomeNF,1)) %>.&nbsp;<%=Guard1HomeN %></a>&nbsp;<%=HGua1Barps%></br>							
 							<span class="gameTip"><small><%=Guard1HomeOpp  %>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hGuaTip%></small></span>
 						</td>
@@ -1092,17 +1097,17 @@ span.orangeText {
 						
 						<!--GUARD AWAY 2-->
 						<%if Guard1Away = "***GUA***" then%>
-						<td class="text-left" style="color:white;background-color:#9a1400;width:50%;">
+						<td class="text-left big" style="color:white;background-color:#9a1400;width:50%;">
 							<redIcon2><i class="fas fa-user-slash"></i></redIcon2></br>
 							</small><%=Guard1AwayOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=gua1Tip%></small>
 						</td>	
 						<%elseif awayGua1TipDeadlinePassed then %>
-						<td class="text-left  big" style="background-color:black;color: #a89a7a;font-weight:bold;">
+						<td class="text-left big" style="background-color:black;color: #a89a7a;font-weight:bold;">
 							<span style="color:white;">GUA</span>&nbsp;<span style="font-weight:bold;color:yellowgreen;"><%=left(Guard1AwayNF,1) %>.&nbsp;<%=Guard1Away %></span><br>
 							<small><%=Guard1AwayOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=gua1Tip%></small>
 						</td>						
 						<%else%>
-						<td class="text-left">
+						<td class="text-left big">
 							<span class="orangeText">GUA</span>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=sGuard1Away %>"><%=(left(Guard1AwayNF,1))%>.&nbsp;<%=Guard1Away %></a>&nbsp;<%=AGua1Barps%></br>							
 							<span class="gameTip"><small><%=Guard1AwayOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=gua1Tip%></small></span>
 						</td>	
@@ -1111,17 +1116,17 @@ span.orangeText {
 					<!--GUARDS 2  -->
 					<tr style="vertical-align:middle;background-color:white;">
   					<%if Guard2HomeN = "***GUA***" then%>
-							<td class="text-left" style="color:white;background-color:#9a1400;width:50%;">
+							<td class="text-left big" style="color:white;background-color:#9a1400;width:50%;">
 							<redIcon2><i class="fas fa-user-slash"></i></redIcon2></br>
 							<small><%=Guard2HomeOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hGua2Tip %></small>
 						</td>
 						<%elseif homeGua2TipDeadlinePassed then %>
-						<td class="text-left  big" style="background-color:black;color: #a89a7a;font-weight:bold;">
+						<td class="text-left big" style="background-color:black;color: #a89a7a;font-weight:bold;">
 							<span style="color:white;">GUA</span>&nbsp;<span style="font-weight:bold;color:yellowgreen;"><%=left(Guard2HomeNF,1) %>.&nbsp;<%=Guard2HomeN %></span><br>
 						  <small><%=Guard2HomeOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hGua2Tip %></small>
 						</td>
 						<%else%>
-						<td class="text-left">
+						<td class="text-left big">
 							<span class="orangeText">GUA</span>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=sGuard2Home%>"><%=(left(Guard2HomeNF,1))%>.&nbsp;<%=Guard2HomeN %></a>&nbsp;<%=HGua2Barps%></br>							
 							<span class="gameTip"><small><%=Guard2HomeOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=hGua2Tip %></small></span>
 						</td>
@@ -1129,17 +1134,17 @@ span.orangeText {
 						
 						<!--AWAY GUARD 2-->
   					<%if Guard2Away = "***GUA***" then%>
-							<td class="text-left" style="color:white;background-color:#9a1400;width:50%;">
+							<td class="text-left big" style="color:white;background-color:#9a1400;width:50%;">
 							<redIcon2><i class="fas fa-user-slash"></i></redIcon2></br>
 							<small><%=Guard2AwayOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=gua2Tip%></small>
 						</td>	
 						<%elseif awayGua2TipDeadlinePassed then %>
-						<td class="text-left  big" style="background-color:black;color: #a89a7a;font-weight:bold;">
+						<td class="text-left big" style="background-color:black;color: #a89a7a;font-weight:bold;">
 							<span style="color:white;">GUA</span>&nbsp;<span style="font-weight:bold;color:yellowgreen;"><%=left(Guard2AwayNF,1) %>.&nbsp;<%=Guard2Away %></span><br>
 						  <small><%=Guard2AwayOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=gua2Tip %></small>
 						</td>
 						<%else%>
-						<td class="text-left">
+						<td class="text-left big">
 							<span class="orangeText">GUA</span>&nbsp;<a class="blue" href="playerprofile.asp?pid=<%=sGuard2Away %>"><%=(left(Guard2AwayNF,1))%>.&nbsp;<%=Guard2Away %></a>&nbsp;<%=AGua2Barps%></br>
 							<span class="gameTip"><small><%=Guard2AwayOpp%>&nbsp;<i class="fas fa-clock"></i>&nbsp;<%=gua2Tip%></small></span>
 						</td>	
@@ -1187,6 +1192,68 @@ span.orangeText {
 				Set objRSBarps   = Nothing  
 				
 			%>			
+			</div>
+			<div id="nbaSked" class="tab-pane fade">
+				<%
+					Set objRSTMSkeds  = Server.CreateObject("ADODB.RecordSet")
+					Set objRSAllDates = Server.CreateObject("ADODB.RecordSet")
+					objRSAllDates.Open "SELECT DISTINCT GameDate FROM tblLeagueSetup WHERE GameDate >= DATE() ORDER BY GameDate", objConn									
+				%>
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="panel panel-override">
+							<div class="panel-body">
+								<%						
+									While Not objRSAllDates.EOF
+									loopGameDate = objRSAllDates.Fields("GameDate").Value
+									
+									objRSTMSkeds.Open   "SELECT TeamName,'at' as Location, Opponent, GameDate, TipTimeEst - 1/24 as Tip_CST " &_ 
+																			"FROM tblLeagueSetup " &_ 
+																			"WHERE GameLoc = '@' AND gamedate = #"&loopGameDate&"# ORDER BY GameDate, TipTimeEst",objConn,3,3,1	
+
+									gameCnt = objRSTMSkeds.recordCount										
+								%>
+								<% if gameCnt >=7 then %>
+									<span style="font-weight:bold;font-size:16px;text-transform:uppercase;"><%=FormatDateTime(loopGameDate,1)%></span>&nbsp;<mark>[IGBL GAME]</mark></br></br>
+								<%else%>
+									<span style="font-weight:bold;font-size:16px;text-transform:uppercase;"><%=FormatDateTime(loopGameDate,1)%></span></br></br>
+								<%end if%>
+								
+								<table class="table table-custom-black table-responsive table-condensed">
+									<tr style="font-weight:bold;background-color:#dff0d8;">
+										<td class="big" style="text-align:left;">Team</td>
+										<td class="big" style="text-align:left;">Opponent</td>
+										<td class="big" style="text-align:left;">Tip-Time</td>
+									</tr>
+									<%
+										
+										While Not objRSTMSkeds.EOF
+									%>
+										<tr style="background-color:#dff0d8;">
+											<td class="big" style="vertical-align:middle;text-align:left;width:38%;background-color:white;"><%=objRSTMSkeds.Fields("TeamName").Value%></td>
+											<td class="big" style="vertical-align:middle;text-align:left;width:38%;background-color:white;"><%=objRSTMSkeds.Fields("Opponent").Value%></td>
+											<td class="big" style="vertical-align:middle;text-align:left;width:24%;background-color:white;"><%=objRSTMSkeds.Fields("Tip_CST").Value%></td>
+										</tr>					
+									<%
+										objRSTMSkeds.MoveNext
+										Wend
+										objRSTMSkeds.Close							
+									%>
+							</table>
+							<br>
+							<%					
+								objRSAllDates.MoveNext
+								Wend 
+								objRSAllDates.Close					
+							%>				
+							</div>
+						</div>
+					</div>
+				</div>
+				<%
+					objRSTMSkeds.Close
+					objRSAllDates.Close	
+				%>
 			</div>
 		  <% if sAction = "Reforecast" or sAction = "ReforecastAdd" then %>
 			<div id="VS" class="tab-pane fade in active">
@@ -1249,7 +1316,7 @@ span.orangeText {
 				<%if objRSHurt.RecordCount > 0 then %>
 				</br>
 				<table class="table table-custom-black table-bordered table-condensed">
-					<tr style="background-color:red;vertical-align:middle">
+					<tr style="background-color:#9a1400;vertical-align:middle">
 					<td>
 						<table class="table table-striped table-responsive table-custom table-condensed">
 						<td style="text-align:left;"><i class="fas fa-briefcase-medical red"></i>&nbsp;Your Injured Players are Omitted from Forecast. Visit the Player Profile Page by Clicking the link to set the Indicator to Off.</td>
@@ -1397,15 +1464,24 @@ span.orangeText {
 					<input type="hidden" name="GameDays"  value="<%=objRSAll("gameday")%>"/>							
 					<table class="table table-custom-black table-bordered table-condensed">
 						<tr style="background-color: white;">
-							<th colspan="2">Forecast for <%=objRSAll("gameday")%></th>
+							<th colspan="2">Forecast for <%=objRSAll("gameday")%> vs. <span style="text-left;color:red;font-weight: bold;" class="text-uppercase"><%=OpponentName%></span></th>
 						</tr>
 						<%
 							myLine = cDbl(OppTotal) - cDbl(myTotal)
 							vLine  = cDbl(myTotal)  - cDbl(OppTotal)						
 						%>
-						<tr style="background-color: white;">
-							<td style="vertical-align:middle;width:50%;color:black"><span style="font-weight:bold;black">Line:</span>&nbsp;<%=round(myLine,1)%>&nbsp;<span style="font-weight:bold;color:black;">Proj:</span>&nbsp;<%= round(myTotal,2)%></td>
-							<td style="vertical-align:middle;width:50%;color:black"><span style="text-left;color: #9a1400;font-weight: bold;" class="text-uppercase">[<%=OpponentName%>]</span>&nbsp;<span style="font-weight:bold;black">Line:&nbsp;</span><%=round(vLine,1)%>&nbsp;<span style="font-weight:bold;color:black;">Proj:</span>&nbsp;<%=round(oppTotal,2)%></td>
+						<tr style="background-color: white;">					
+							<%if OppTotal > myTotal then%>
+								<td style="vertical-align:middle;width:50%;color:black"><span style="font-weight:bold;black">Line:</span>&nbsp;+<%=round(myLine,1)%>&nbsp;<span style="font-weight:bold;color:black;">Proj:</span>&nbsp;<%= round(myTotal,2)%></td>
+							<%else%>
+								<td style="vertical-align:middle;width:50%;color:black"><span style="font-weight:bold;black">Line:</span>&nbsp;<%=round(myLine,1)%>&nbsp;<span style="font-weight:bold;color:black;">Proj:</span>&nbsp;<%= round(myTotal,2)%>&nbsp;<span class="big"><mark>FAV</mark></span></td>
+							<%end if %>
+							
+							<%if myTotal > OppTotal then%>
+								<td style="vertical-align:middle;width:50%;color:black"><span style="font-weight:bold;black">Line:&nbsp;</span>+<%=round(vLine,1)%>&nbsp;<span style="font-weight:bold;color:black;">Proj:</span>&nbsp;<%=round(oppTotal,2)%></td>
+							<%else%>
+								<td style="vertical-align:middle;width:50%;color:black"><span style="font-weight:bold;black">Line:&nbsp;</span><%=round(vLine,1)%>&nbsp;<span style="font-weight:bold;color:black;">Proj:</span>&nbsp;<%=round(oppTotal,2)%>&nbsp;<span class="big"><mark>FAV</mark></span></td>
+							<%end if%>	
 						</tr>
 						<tr style="vertical-align:middle;background-color:white;">						
 							<%if CenName = false then%>
@@ -1543,7 +1619,7 @@ span.orangeText {
 						</tr>
 						<%else%>
 						<tr>
-							<td colspan="5" style="text-align:center;vertical-align:middle;font-weight:bold;background-color: yellow;vertical-align: middle;"><i class="fa fa-user-lock red " aria-hidden="true" style="vertical-align: sub;"></i>&nbsp;<span style="font-weight:bold;background-color: yellow;vertical-align: middle;">Submit Lineup Via Dashboard!</span></td>
+							<td colspan="5" style="text-align:center;vertical-align:middle;font-weight:bold;background-color: yellow;vertical-align: middle;"><i class="fas fa-user-lock red"></i>&nbsp;<span style="font-weight:bold;background-color: yellow;vertical-align: middle;">Submit Lineup Via Dashboard!</span></td>
 						</tr>
 						<%end if%>
 					</table>
