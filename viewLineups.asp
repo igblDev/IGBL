@@ -517,9 +517,12 @@ span.orangeText {
 				While Not objRSMatchups.EOF
 	
 				hometeam      = objRSMatchups.Fields("HomeTeam").Value
+				hometeamTime  = objRSMatchups.Fields("HomeStamp").Value
 				hometeamshort = objRSMatchups.Fields("HomeTeamShort").Value
 				homeowner     = objRSMatchups.Fields("HomeOwner").Value
 				hometeampen   = objRSMatchups.Fields("HomeTeamPen").Value
+				
+				awayteamTime  = objRSMatchups.Fields("TimeStamp").Value
 				awayteam      = objRSMatchups.Fields("VisitingTeam").Value
 				awayteamshort = objRSMatchups.Fields("VisitingTeamShort").Value
 				awayowner     = objRSMatchups.Fields("VisitingOwner").Value
@@ -902,8 +905,8 @@ span.orangeText {
 
 						<table class="table table-custom-black table-bordered table-condensed">
 							<tr style="text-align:center;vertical-align:middle;background-color:black;font-weight:bold;">
-								<td class="big" style="color:#a89a7a;">Active Player Count: <span style="color:white;"><%=homePlayerCnt%></span></td>
-								<td class="big" style="color:#a89a7a;">Active Player Count: <span style="color:white;"><%=awayPlayerCnt%></span></td>
+								<td class="big" style="color:#a89a7a;">Active Player Count: <span style="color:white;"><%=homePlayerCnt%></span><br><span style="color:white;"><small>TS:</span>&nbsp;<span style="color:antiquewhite;"><%=hometeamTime%></span></small></td>
+								<td class="big" style="color:#a89a7a;">Active Player Count: <span style="color:white;"><%=awayPlayerCnt%></span></br><span style="color:white;"><small>TS:</span>&nbsp;<span style="color:antiquewhite;"><%=awayteamTime%></span></small></td>
 							</tr>
 							<tr  style="background-color:white;text-align:center;vertical-align:middle">
 								<% if hometeampen = true Then %>
@@ -1230,9 +1233,9 @@ span.orangeText {
 										While Not objRSTMSkeds.EOF
 									%>
 										<tr style="background-color:#dff0d8;">
-											<td class="big" style="vertical-align:middle;text-align:left;width:38%;background-color:white;"><%=objRSTMSkeds.Fields("TeamName").Value%></td>
-											<td class="big" style="vertical-align:middle;text-align:left;width:38%;background-color:white;"><%=objRSTMSkeds.Fields("Opponent").Value%></td>
-											<td class="big" style="vertical-align:middle;text-align:left;width:24%;background-color:white;"><%=objRSTMSkeds.Fields("Tip_CST").Value%></td>
+											<td class="big" style="vertical-align:middle;text-align:left;width:38%;background-color:white;font-size:11px;"><%=objRSTMSkeds.Fields("TeamName").Value%></td>
+											<td class="big" style="vertical-align:middle;text-align:left;width:38%;background-color:white;font-size:11px;"><%=objRSTMSkeds.Fields("Opponent").Value%></td>
+											<td class="big" style="vertical-align:middle;text-align:left;width:24%;background-color:white;font-size:11px;"><%=objRSTMSkeds.Fields("Tip_CST").Value%></td>
 										</tr>					
 									<%
 										objRSTMSkeds.MoveNext
@@ -1486,7 +1489,7 @@ span.orangeText {
 						<tr style="vertical-align:middle;background-color:white;">						
 							<%if CenName = false then%>
 								<td style="vertical-align:middle;width:50%;" class="opp">				
-									<span class="blue"><i class="fas fa-user-slash"></i></span>
+									<span class="blue">Rent Center</span>
 								</td>
 							<%else%>
 								<td style="vertical-align:middle;width:50%;" class="opp">
@@ -1501,7 +1504,7 @@ span.orangeText {
 							
 							<%if OppCenName = false then%>
 								<td style="vertical-align:middle;text-align:left;" class="opp">
-									<span class="blue"><i class="fas fa-user-slash"></i></span>
+									<span class="red">No Center</span>
 								</td>
 							<%else%>
 								<td style="vertical-align:middle;text-align:left;">
@@ -1517,7 +1520,7 @@ span.orangeText {
 						<tr style="vertical-align:middle;background-color:white;">
 							<%if For1Name = false then%>
 								<td style="vertical-align:middle;text-align:left;">
-									<span class="blue"><i class="fas fa-user-slash"></i></span>
+									<span class="blue">Rent Forward</span>
 								</td>
 							<%else%>
 								<%if Cdbl(For1Barps) > Cdbl(OppFor1Barps) then %>
@@ -1528,7 +1531,7 @@ span.orangeText {
 							<%end if %>
 							<%if OppFor1Name = false then%>
 								<td style="vertical-align:middle;text-align:left;">
-									<span class="blue"><i class="fas fa-user-slash"></i></span>
+									<span class="red">No Forward</span>
 								</td>
 							<%else%>
 								<%if Cdbl(OppFor1Barps) > Cdbl(For1Barps) then%>
@@ -1541,7 +1544,7 @@ span.orangeText {
 						<tr style="vertical-align:middle;background-color:white;">
 							<% if For2Name = false then %>
 								<td style="vertical-align:middle;text-align:left;">
-									<span class="blue"><i class="fas fa-user-slash"></i></span>
+									<span class="blue">Rent Forward</span>
 								</td>
 							<%else%>
 								<%if cDBL(For2Barps) > cDBL(OppFor2Barps) then%>
@@ -1553,7 +1556,7 @@ span.orangeText {
 								
 							<% if OppFor2Name = false then %>
 								<td style="vertical-align:middle;text-align:left;">
-									<span class="blue"><i class="fas fa-user-slash"></i></span>
+									<span class="red">No Forward</span>
 								</td>
 							<%else%>
 								<%if cDBL(OppFor2Barps) > cDBL(For2Barps) then%>
@@ -1566,7 +1569,7 @@ span.orangeText {
 						<tr style="vertical-align:middle;background-color:white;">
 							<%if Guard1Name = false then%>
 								<td style="vertical-align:middle;text-align:left;">
-									<span class="blue"><i class="fas fa-user-slash"></i></span>
+									<span class="blue">Rent Guard</span>
 								</td>
 							<%else%>
 								<%if cDBL(Guard1Barps) > cDBL(OppGuard1Barps) then %>
@@ -1577,7 +1580,7 @@ span.orangeText {
 							<%end if %>
 							<%if OppGuard1Name = false then %>
 								<td style="vertical-align:middle;text-align:left;">
-									<span class="blue"><i class="fas fa-user-slash"></i></span>
+									<span class="red">No Guard</span>
 								</td>
 							<%else%>
 								<%if cDBL(OppGuard1Barps) > cDBL(Guard1Barps) then %>
@@ -1590,7 +1593,7 @@ span.orangeText {
 						<tr style="vertical-align:middle;background-color:white;">
 							<% if Guard2Name = false then %>
 								<td style="vertical-align:middle;text-align:left;">
-									<span class="blue"><i class="fas fa-user-slash"></i></span>
+									<span class="blue">Rent Guard</span>
 								</td>
 							<%else%>
 								<%if cDBL(Guard2Barps) > cDBL(OppGuard2Barps) then %>
@@ -1601,13 +1604,13 @@ span.orangeText {
 							<%end if %>
 							<% if OppGuard2Name = false then %>
 								<td style="vertical-align:middle;text-align:left;">
-									<span class="blue"><i class="fas fa-user-slash"></i></span>
+									<span class="red">No Guard</span>
 								</td>
 							<%else%>
 								<%if cDBL(OppGuard2Barps) > cDBL(Guard2Barps) then%>
-									<td class="text-left "><span class="orangeText">GUA</span>&nbsp;<span class="blue"><%=OppGuard2Name %></span>&nbsp;<%=round(OppGuard2Barps,2)%>&nbsp;<i class="far fa-check green fa-sm"></i></td>
+									<td class="text-left"><span class="orangeText">GUA</span>&nbsp;<span class="blue"><%=OppGuard2Name %></span>&nbsp;<%=round(OppGuard2Barps,2)%>&nbsp;<i class="far fa-check green fa-sm"></i></td>
 								<%else%>
-									<td class="text-left "><span class="orangeText">GUA</span>&nbsp;<span class="blue"><%=OppGuard2Name %></span>&nbsp;<%=round(OppGuard2Barps,2)%></td>
+									<td class="text-left"><span class="orangeText">GUA</span>&nbsp;<span class="blue"><%=OppGuard2Name %></span>&nbsp;<%=round(OppGuard2Barps,2)%></td>
 								<%end if%>
 							<%end if %>
 						</tr>					

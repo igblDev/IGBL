@@ -667,9 +667,7 @@ redText {
 	color:#9a1400;	
 	font-weight:500;
 }
-.orangeText {
-	font-weight: bold;
-}
+
 </style>
 </head>
 <body>
@@ -763,8 +761,8 @@ function processReforecast(theForm) {
 										%>
 													<tr style="background-color:white;"> 
 														<td>
-															<a class="blue" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("t1last").Value,10) %></a>&nbsp;
-															<span class="gameTip big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span>&nbsp;|&nbsp;<span ><%=round(t1playerBarps,2) %></span>
+															<a class="blue" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("t1last").Value,10) %></a>
+															<span class="greenTrade big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span>&nbsp;<span ><%=round(t1playerBarps,2) %></span>
 														</td>
 													</tr>
 										<%
@@ -811,8 +809,8 @@ function processReforecast(theForm) {
 											%>
 											<tr style="background-color:white;"> 
 												<td>
-													<a class="blue" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("t2last").Value,10) %></a>&nbsp;
-													<span class="gameTip big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span>&nbsp;|&nbsp;<span ><%=round(t2playerBarps,2) %></span>
+													<a class="blue" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("t2last").Value,10) %></a>
+													<span class="greenTrade big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span>&nbsp;<span ><%=round(t2playerBarps,2) %></span>
 												</td>
 											</tr>	
 											<%end if%>
@@ -858,8 +856,8 @@ function processReforecast(theForm) {
 										%>
 										<tr style="background-color:white;"> 
 											<td>
-												<a class="blue" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("t3last").Value,10) %></a>&nbsp;
-												<span class="gameTip big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span>&nbsp;|&nbsp;<span ><%=round(t3playerBarps,2) %></span>
+												<a class="blue" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("t3last").Value,10) %></a>
+												<span class="greenTrade big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span>&nbsp;<span ><%=round(t3playerBarps,2) %></span>
 											</td>
 										</tr>	
 										<% end if %>								
@@ -907,8 +905,8 @@ function processReforecast(theForm) {
 				%>
 					<tr  style="background-color:white">
 						<td>
-							<a class="blue" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("a1last").Value,10) %></a>&nbsp;
-							<span class="gameTip big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span>&nbsp;|&nbsp;<span ><%=round(a1playerBarps,2) %></span>
+							<a class="blue" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("a1last").Value,10) %></a>
+							<span class="greenTrade big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span>&nbsp;<span ><%=round(a1playerBarps,2) %></span>
 						</td>
 					</tr>	 
 
@@ -952,8 +950,8 @@ function processReforecast(theForm) {
 					%>
 										<tr  style="background-color:white">
 											<td>
-												<a class="blue" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("a2last").Value,10) %></a>&nbsp;
-												<span class="gameTip big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span>&nbsp;|&nbsp;<span ><%=round(a2playerBarps,2) %></span>
+												<a class="blue" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("a2last").Value,10) %></a>
+												<span class="greenTrade big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span>&nbsp;<span ><%=round(a2playerBarps,2) %></span>
 											</td>
 										</tr>	 
 
@@ -1000,8 +998,8 @@ function processReforecast(theForm) {
  
 					<tr  style="background-color:white">
 						<td>
-							<a class="blue" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("a3last").Value,10) %></a>&nbsp;
-							<span class="gameTip big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span>&nbsp;|&nbsp;<span ><%=round(a3playerBarps,2) %></span>
+							<a class="blue" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("a3last").Value,10) %></a>
+							<span class="greenTrade big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span>&nbsp;<span ><%=round(a3playerBarps,2) %></span>
 						</td>
 					</tr>
 						<% end if %>								
@@ -1487,7 +1485,7 @@ While Not objRSAll.EOF
 					<tr bgcolor="#FFFFFF">
 
 					<% if (For1PID = tplayer1 or For1PID = tplayer2 or For1PID = tplayer3) and For1PID <> 0 then %>
-						<td class="big" style="text-align: left"><span blueText><%=For1Name%></blueText></td>
+						<td class="big" style="text-align: left"><blueText><%=For1Name%></blueText></td>
 					<% else %>
 						<td class="big" style="text-align: left"><%=For1Name%></td>
 					<% end if %>	

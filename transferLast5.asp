@@ -126,8 +126,7 @@
 			    wRetcd = UpdateL5BarpAvg()	
 			end if			
 						
-			'Load 10 games for each player so we can diapley the whos hot list.
-			if l5Count <= 10 then
+			if l5Count <= 5 then
 			   		
                 if l5Count <= 5 then
 				   wlast5game = 1

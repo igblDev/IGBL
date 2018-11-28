@@ -12,16 +12,17 @@ strErrorUrl = ""
 	Dim ownerID, teamcnt, objRSteams, teamloop,sAction
 	Dim objConn, objConn1,objRS,objRS1,objRS2,objRS3,objRS4,objRS5,objRS6
 
-	Set objConn   = Server.CreateObject("ADODB.Connection")
-	Set objRS     = Server.CreateObject("ADODB.RecordSet")
-	Set objRSteams= Server.CreateObject("ADODB.RecordSet")
-	Set objRS1    = Server.CreateObject("ADODB.RecordSet")
-	Set objRS2    = Server.CreateObject("ADODB.RecordSet")
-	Set objRS3    = Server.CreateObject("ADODB.RecordSet")
-	Set objRS4    = Server.CreateObject("ADODB.RecordSet")
-	Set objRS5    = Server.CreateObject("ADODB.RecordSet")
-	Set objRS6    = Server.CreateObject("ADODB.RecordSet")
-	Set objRS     = Server.CreateObject("ADODB.RecordSet")
+	Set objConn    = Server.CreateObject("ADODB.Connection")
+	Set objRS      = Server.CreateObject("ADODB.RecordSet")
+	Set objRSteams = Server.CreateObject("ADODB.RecordSet")
+	Set objRS1     = Server.CreateObject("ADODB.RecordSet")
+	Set objRS2     = Server.CreateObject("ADODB.RecordSet")
+	Set objRS3     = Server.CreateObject("ADODB.RecordSet")
+	Set objRS4     = Server.CreateObject("ADODB.RecordSet")
+	Set objRS5     = Server.CreateObject("ADODB.RecordSet")
+	Set objRS6     = Server.CreateObject("ADODB.RecordSet")
+	Set objRS      = Server.CreateObject("ADODB.RecordSet")
+	Set objRSgames = Server.CreateObject("ADODB.RecordSet")
 
 
 	objConn.Open Application("lineupstest_ConnectionString")
@@ -228,13 +229,13 @@ border-radius:0px;
 %>
   <%
 	teamcnt = teamcnt + 1
-	objRS.Open   "SELECT * FROM qryRosters WHERE OwnerID  =" & teamcnt & "  and  pos = 'CEN'  ", objConn,3,3,1
-  objRS2.Open  "SELECT * FROM qryRosters WHERE OwnerID =" & teamcnt & "  and  pos = 'FOR'  ", objConn,3,3,1
-  objRS3.Open  "SELECT * FROM qryRosters WHERE OwnerID =" & teamcnt & "  and  pos = 'F-C'  ", objConn,3,3,1
-  objRS5.Open  "SELECT * FROM qryRosters WHERE OwnerID =" & teamcnt & "  and  pos = 'GUA'  ", objConn,3,3,1
-  objRS6.Open  "SELECT * FROM qryRosters WHERE OwnerID =" & teamcnt & "  and  pos = 'G-F'  ", objConn,3,3,1
-	objRSteams.Open "SELECT * FROM qryowners WHERE OwnerID = " & teamcnt & " ", objConn,3,3,1
-
+	objRS.Open      "SELECT * FROM qryRosters WHERE OwnerID =" & teamcnt & "  and  pos = 'CEN'  ", objConn,3,3,1
+  objRS2.Open     "SELECT * FROM qryRosters WHERE OwnerID =" & teamcnt & "  and  pos = 'FOR'  ", objConn,3,3,1
+  objRS3.Open     "SELECT * FROM qryRosters WHERE OwnerID =" & teamcnt & "  and  pos = 'F-C'  ", objConn,3,3,1
+  objRS5.Open     "SELECT * FROM qryRosters WHERE OwnerID =" & teamcnt & "  and  pos = 'GUA'  ", objConn,3,3,1
+  objRS6.Open     "SELECT * FROM qryRosters WHERE OwnerID =" & teamcnt & "  and  pos = 'G-F'  ", objConn,3,3,1
+	objRSteams.Open "SELECT * FROM qryowners  WHERE OwnerID =" & teamcnt & " ", objConn,3,3,1
+  objRSgames.Open "SELECT * FROM standings  WHERE ID      =" & teamcnt & " ", objConn,3,3,1
  	dim w_max_count
 	w_max_count = 0
 
@@ -276,7 +277,7 @@ border-radius:0px;
 					<%if objRSteams.Fields("OwnerID").value = ownerid then%>
 						<tr>
 							<td  colspan="5" valign="middle" align="center">
-								<button class="btn  btn-team btn-block" disabled><%= objRSteams.Fields("teamName").Value%>&nbsp;<small>(<%= objRSteams.Fields("ShortNAme").Value%>)</small> <%= objRSteams.Fields("ActivePlayerCnt").Value%></button>
+								<button class="btn  btn-team btn-block" disabled><%= objRSteams.Fields("teamName").Value%>&nbsp;[<%= objRSgames.Fields("won").Value%>-<%= objRSgames.Fields("loss").Value%>]&nbsp;(<%= objRSteams.Fields("ShortNAme").Value%>)</button>
 							</td>	
 						</tr>	
 					<%elseif myTradeInd = false or objRSteams.Fields("acceptTradeOffers").Value = false then%>
@@ -287,7 +288,7 @@ border-radius:0px;
 						</tr>	
 					<%else%>
 						<tr>
-              <td style="text-align:center"colspan="5"><button class="btn btn-block btn-team " value="Continue;<%= Trim(objRSteams.Fields("OwnerID").value) %>;<%= objRSteams.Fields("TeamName").value%>" name="Action" type="submit">Trade w/<%= objRSteams.Fields("TeamName").value%>&nbsp;<small><span style="color:white;text-transform:uppercase;">[<%= objRSteams.Fields("ShortNAme").Value%>]</span></small></button></td>
+              <td style="text-align:center"colspan="5"><button class="btn btn-block btn-team " value="Continue;<%= Trim(objRSteams.Fields("OwnerID").value) %>;<%= objRSteams.Fields("TeamName").value%>" name="Action" type="submit">Trade w/<%= objRSteams.Fields("TeamName").value%>&nbsp;<span style="color:white;">[<%= objRSgames.Fields("won").Value%>-<%= objRSgames.Fields("loss").Value%>]</span>&nbsp;(<%= objRSteams.Fields("ShortNAme").Value%>)</button></td>
             </tr>						
 					<%end if %>	
             <tr>
@@ -502,6 +503,7 @@ border-radius:0px;
 	objRS5.Close
 	objRS6.Close
 	objRSteams.Close
+	objRSgames.Close
 
 	objRS.MoveFirst
 	objRS1.MoveFirst
@@ -523,6 +525,7 @@ border-radius:0px;
   	objRS5.Close
   	objRS6.Close
 	  objRSteams.Close
+		objRSgames.Close
 
     objConn.Close
 

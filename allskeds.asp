@@ -56,7 +56,11 @@ black {
 .nav-tabs {
     border-bottom: 2px solid black;
 }
-
+.panel-override {
+    background-color: #9acd32;
+    border-color: #000;
+    border-width: 1px;
+}
 </style>
 </head>
 <body>
@@ -73,8 +77,9 @@ black {
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<ul class="nav nav-tabs">
-				<li class="active"><a data-toggle="tab" href="#mysked"><i class="fal fa-calendar-alt"></i>&nbsp;My Schedule </a></li>
-				<li><a data-toggle="tab" href="#leadersked"><i class="fas fa-calendar-alt"></i>&nbsp;League Schedule</a></li>
+				<li class="active"><a data-toggle="tab" href="#mysked"><i class="fal fa-calendar-alt"></i>&nbsp;Mine</a></li>
+				<li><a data-toggle="tab" href="#leadersked"><i class="fas fa-calendar-alt"></i>&nbsp;IGBL</a></li>
+				<li><a data-toggle="tab" href="#nba"><i class="fas fa-calendar-alt"></i>&nbsp;NBA</a></li>
 				</ul>
 		</div>
 	</div>
@@ -260,6 +265,68 @@ black {
 						Wend 
 					objRSAllDates.Close					
 				%>				
+				</div>
+				<div id="nba" class="tab-pane">
+					<%
+						Set objRSTMSkeds  = Server.CreateObject("ADODB.RecordSet")
+						Set objRSAllDates = Server.CreateObject("ADODB.RecordSet")
+						objRSAllDates.Open "SELECT DISTINCT GameDate FROM tblLeagueSetup WHERE GameDate >= DATE() ORDER BY GameDate", objConn									
+					%>
+					<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12">
+						<div class="panel panel-override">
+							<div class="panel-body">
+								<%						
+									While Not objRSAllDates.EOF
+									loopGameDate = objRSAllDates.Fields("GameDate").Value
+									
+									objRSTMSkeds.Open   "SELECT TeamName,'at' as Location, Opponent, GameDate, TipTimeEst - 1/24 as Tip_CST " &_ 
+																			"FROM tblLeagueSetup " &_ 
+																			"WHERE GameLoc = '@' AND gamedate = #"&loopGameDate&"# ORDER BY GameDate, TipTimeEst",objConn,3,3,1	
+
+									gameCnt = objRSTMSkeds.recordCount										
+								%>
+								<% if gameCnt >=7 then %>
+									<span style="font-weight:bold;font-size:16px;text-transform:uppercase;"><%=FormatDateTime(loopGameDate,1)%></span>&nbsp;<mark>[IGBL GAME]</mark></br></br>
+								<%else%>
+									<span style="font-weight:bold;font-size:16px;text-transform:uppercase;"><%=FormatDateTime(loopGameDate,1)%></span></br></br>
+								<%end if%>
+								
+								<table class="table table-custom-black table-responsive table-condensed">
+									<tr style="font-weight:bold;background-color:#dff0d8;">
+										<th class="big" style="text-align:left;">Team</th>
+										<th class="big" style="text-align:left;">Opponent</th>
+										<th class="big" style="text-align:left;">Tip-Time</th>
+									</tr>
+									<%
+										
+										While Not objRSTMSkeds.EOF
+									%>
+										<tr style="background-color:#dff0d8;">
+											<td class="big" style="vertical-align:middle;text-align:left;width:38%;background-color:white;font-size:11px;"><%=objRSTMSkeds.Fields("TeamName").Value%></td>
+											<td class="big" style="vertical-align:middle;text-align:left;width:38%;background-color:white;font-size:11px;"><%=objRSTMSkeds.Fields("Opponent").Value%></td>
+											<td class="big" style="vertical-align:middle;text-align:left;width:24%;background-color:white;font-size:11px;"><%=objRSTMSkeds.Fields("Tip_CST").Value%></td>
+										</tr>					
+									<%
+										objRSTMSkeds.MoveNext
+										Wend
+										objRSTMSkeds.Close							
+									%>
+							</table>
+							<br>
+							<%					
+								objRSAllDates.MoveNext
+								Wend 
+								objRSAllDates.Close					
+							%>				
+							</div>
+						</div>
+					</div>
+				</div>
+				<%
+					objRSTMSkeds.Close
+					objRSAllDates.Close	
+				%>
 				</div>
 			</div>	
 		</div>		

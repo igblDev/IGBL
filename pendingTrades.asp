@@ -349,12 +349,12 @@ blackMsg {
 											<td>
 											<%if (len(objRS.Fields("t1first").Value) + len(objRS.Fields("t1last").Value)) >= 14 then %>
 												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>">
-													<%=left(objRS.Fields("t1first").Value,1)%>.&nbsp;<%=left(objRS.Fields("t1last").Value,14)%></a>,&nbsp;
+													<%=left(objRS.Fields("t1first").Value,1)%>.&nbsp;<%=left(objRS.Fields("t1last").Value,14)%></a>
 											<%else%>
 												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>">
-													<%=left(objRS.Fields("t1first").Value,8)%>&nbsp;<%=left(objRS.Fields("t1last").Value,10)%></a>,&nbsp;
+													<%=left(objRS.Fields("t1first").Value,8)%>&nbsp;<%=left(objRS.Fields("t1last").Value,10)%></a>
 											<%end if%>
-												<small><span class="gameTip big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span></small>
+												<small><span class="greenTrade big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span></small>
 											</td>
 										</tr>
 										<%
@@ -369,14 +369,11 @@ blackMsg {
 										<tr style="background-color:white">
 											<td>
 											<%if (len(objRS.Fields("t2first").Value) + len(objRS.Fields("t2last").Value)) >= 14 then %>
-												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>">
-													<%=left(objRS.Fields("t2first").Value,1)%>.&nbsp;<%=left(objRS.Fields("t2last").Value,14)%>
-												</a>,&nbsp;
+												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("t2first").Value,1)%>.&nbsp;<%=left(objRS.Fields("t2last").Value,14)%></a>
 											<%else%>
-												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>">
-													<%=left(objRS.Fields("t2first").Value,8)%>&nbsp;<%=left(objRS.Fields("t2last").Value,10)%></a>,&nbsp;
+												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("t2first").Value,8)%>&nbsp;<%=left(objRS.Fields("t2last").Value,10)%></a>
 											<%end if%>
-												<small><span class="gameTip big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span></small>
+												<small><span class="greenTrade big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span></small>
 											</td>
 										</tr>
 										<%end if%>
@@ -391,14 +388,12 @@ blackMsg {
 										%>
 										<tr style="background-color:white">
 											<td>
-											<%if (len(objRS.Fields("t3first").Value) + len(objRS.Fields("t3last").Value)) >= 14 then %>
-												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>">
-													<%=left(objRS.Fields("t3first").Value,1)%>.&nbsp;<%=left(objRS.Fields("t3last").Value,14)%></a>,&nbsp;
+											<%if (len(objRS.Fields("t3first").Value) + len(objRS.Fields("t3last").Value)) >= 14 then %>						
+												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("t3first").Value,1)%>.&nbsp;<%=left(objRS.Fields("t3last").Value,14)%></a>
 											<%else%>
-												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>">
-													<%=left(objRS.Fields("t3first").Value,8)%>&nbsp;<%=left(objRS.Fields("t3last").Value,10)%></a>,&nbsp;
+												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("t3first").Value,8)%>&nbsp;<%=left(objRS.Fields("t3last").Value,10)%></a>
 											<%end if%>
-												<small><span class="gameTip big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span></small>
+												<small><span class="greenTrade big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span></small>
 											</td>
 										</tr>
 										<% end if %>
@@ -417,13 +412,11 @@ blackMsg {
 										<tr style="background-color:white">
 											<td>
 											<%if (len(objRS.Fields("a1first").Value) + len(objRS.Fields("a1last").Value)) >= 14 then %>
-												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>">
-													<%=left(objRS.Fields("a1first").Value,1)%>.&nbsp;<%=left(objRS.Fields("a1last").Value,14)%></a>,&nbsp;
+												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("a1first").Value,1)%>.&nbsp;<%=left(objRS.Fields("a1last").Value,14)%></a>
 											<%else%>
-												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>">
-													<%=left(objRS.Fields("a1first").Value,8)%>&nbsp;<%=left(objRS.Fields("a1last").Value,10)%></a>,&nbsp;
+												<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("a1first").Value,8)%>&nbsp;<%=left(objRS.Fields("a1last").Value,10)%></a>
 											<%end if%>
-												<small><span class="gameTip big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span></small>
+												<small><span class="greenTrade big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span></small>
 											</td>
 										</tr>
 									<%
@@ -438,13 +431,11 @@ blackMsg {
 									<tr style="background-color:white">
 										<td>
 										<%if (len(objRS.Fields("a2first").Value) + len(objRS.Fields("a2last").Value)) >= 14 then %>
-											<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>">
-												<%=left(objRS.Fields("a2first").Value,1)%>.&nbsp;<%=left(objRS.Fields("a2last").Value,14)%></a>,&nbsp;
+											<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("a2first").Value,1)%>.&nbsp;<%=left(objRS.Fields("a2last").Value,14)%></a>
 										<%else%>
-											<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>">
-												<%=left(objRS.Fields("a2first").Value,8)%>&nbsp;<%=left(objRS.Fields("a2last").Value,10)%></a>,&nbsp;
+											<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("a2first").Value,8)%>&nbsp;<%=left(objRS.Fields("a2last").Value,10)%></a>
 										<%end if%>
-											<small><span class="gameTip big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span></small>
+											<small><span class="greenTrade big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span></small>
 										</td>
 									</tr>
 									<% end if %>
@@ -460,14 +451,11 @@ blackMsg {
 									<tr style="background-color:white">
 										<td>
 										<%if (len(objRS.Fields("a3first").Value) + len(objRS.Fields("a3last").Value)) >= 14 then %>
-											<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>">
-												<%=left(objRS.Fields("a3first").Value,1)%>.&nbsp;<%=left(objRS.Fields("a3last").Value,14)%>
-											</a>,&nbsp;
+											<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("a3first").Value,1)%>.&nbsp;<%=left(objRS.Fields("a3last").Value,14)%></a>
 										<%else%>
-											<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>">
-												<%=left(objRS.Fields("a3first").Value,8)%>&nbsp;<%=left(objRS.Fields("a3last").Value,10)%></a>,&nbsp;
+											<a class="blue big" href="playerprofile.asp?pid=<%=objrstrade.Fields("PID").Value %>"><%=left(objRS.Fields("a3first").Value,8)%>&nbsp;<%=left(objRS.Fields("a3last").Value,10)%></a>
 										<%end if%>
-											<small><span class="gameTip big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;|&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span></small>
+											<small><span class="greenTrade big"><%= objrstrade.Fields("teamShortName").Value %></span>&nbsp;<span class="big orangeText"><%=objrstrade.Fields("pos").Value %></span></small>
 										</td>
 									</tr>
 									<% end if %>									

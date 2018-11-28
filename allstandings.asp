@@ -66,6 +66,10 @@ a.blue {
 .nav-tabs {
     border-bottom: 2px solid black;
 }
+ul.b {
+	list-style-type: square;
+	padding-left: 16px;
+}
 </style>
 </head>
 <body>
@@ -129,7 +133,7 @@ a.blue {
 						<% if objRS.Fields("rank")= 1 or objRS.Fields("rank")= 2 then%>
 							<%if objRS.Fields("ownerID").Value = ownerid then%>
 							<tr class="success big" style="font-weight:bold;text-align:center;vertical-align:middle;">
-								<td class="h2h big" class="content" style="text-align:left;color;vertical-align:middle;">
+								<td class="h2h big" class="content" style="text-align:left;vertical-align:middle;">
 									<small><%=objRS.Fields("rank").Value %></small>&nbsp;<bye><%=objRS.Fields("shortname").Value %></bye>
 								</td>
 							<%else%>
@@ -167,9 +171,13 @@ a.blue {
 						<td  class="h2h big" style="text-align:center;vertical-align:middle;"><%=objRS.Fields("won").Value %></td>
 						<td  class="h2h big" style="text-align:center;vertical-align:middle;"><%=objRS.Fields("loss").Value %></td>
 						<td  class="h2h big" style="text-align:center;vertical-align:middle;"><%=objRS.Fields("gb").Value %></td>
-						<td  class="h2h big" style="text-align:center;vertical-align:middle;"><%=round(objRS.Fields("ppg").Value,1) %></td>
-						<td  class="h2h big" style="text-align:center;vertical-align:middle;"><%=round(objRS.Fields("oppg").Value,1) %></td>
-						<td  class="h2h big" style="text-align:center;vertical-align:middle;"><%=round(objRS.Fields("diff").Value,1) %></td>
+						<td  class="h2h big" style="text-align:center;vertical-align:middle;"><%=round(objRS.Fields("ppg").Value,2) %></td>
+						<td  class="h2h big" style="text-align:center;vertical-align:middle;"><%=round(objRS.Fields("oppg").Value,2) %></td>
+						<%if round(objRS.Fields("ppg").Value,2) > round(objRS.Fields("oppg").Value,2) then %>
+							<td  class="h2h greenTrade big" style="text-align:center;vertical-align:middle;"><strong>+<%=round(objRS.Fields("diff").Value,1) %></strong></td>
+						<%else%>
+							<td  class="h2h red big" style="text-align:center;vertical-align:middle;"><strong><%=round(objRS.Fields("diff").Value,1) %></strong></td>
+						<%end if%>
 						<td  class="h2h big" style="text-align:center;vertical-align:middle;"><%=objRS.Fields("st").Value %></td>
 						<td  class="h2h big" style="text-align:center;vertical-align:middle;"><%=objRS.Fields("cycle").Value %></td>
 
@@ -188,17 +196,19 @@ a.blue {
 							%>
 							</table>
 					<div>
-						<h4><span style="color:#9a1400;font-weight:bold;text-decoration:underline;" class="big">Tie Breaker Rules for H2H Standings</span></h4>
-						<ol class="big">
-							<li><small><strong>The Rules Below Enforced on Position Round!</strong></small></li>
-							<li>If multiple teams share identical records, it's determined if an owner has a H2H advantage over all tied teams. If so that team will be placed highest in the standings</li>
-							<li>If Step 2 does not render a decision, the team with the highest PPG will receive the highest ranking of all tied teams</li>
-							<li>Repeat Step 2 until all tied teams are ranked</li>
-						</ol>
-					</div>
+					<h4><span style="color:#9a1400;font-weight:bold;text-decoration:underline;" class="big">Glossary</span></h4>
+						<ul class="b">							
+							<li><strong>W:</strong>&nbsp;Wins</li>
+							<li><strong>L:</strong>&nbsp;Losses</li>
+							<li><strong>GB:</strong>&nbsp;Games Back</li>
+							<li><strong>PPG:</strong>&nbsp;Points Per Game</li>
+							<li><strong>OPPG:</strong>&nbsp;Opponent Points Per Game</li>
+							<li><strong>DIFF:</strong>&nbsp;Average Point Differential</li>
+							<li><strong>STRK:</strong>&nbsp;Current Streak</li>
+							<li><strong>L10:</strong>&nbsp;Record last 10 games</li>
+						</ul>
+				</div>
 			</div>
-
-
 
 				<div id="h2h" class="tab-pane">
 				<table class="table table-custom-black table-responsive table-bordered table-condensed">
@@ -270,7 +280,16 @@ a.blue {
 				<%
 				objRS.Close
 				%>
-			</table>				
+			</table>	
+					<div>
+						<h4><span style="color:#9a1400;font-weight:bold;text-decoration:underline;" class="big">Tie Breaker Rules for H2H Standings</span></h4>
+						<ol class="big">
+							<li><small><strong>The Rules Below Enforced on Position Round!</strong></small></li>
+							<li>If multiple teams share identical records, it's determined if an owner has a H2H advantage over all tied teams. If so that team will be placed highest in the standings</li>
+							<li>If Step 2 does not render a decision, the team with the highest PPG will receive the highest ranking of all tied teams</li>
+							<li>Repeat Step 2 until all tied teams are ranked</li>
+						</ol>
+					</div>			
 				</div>
 				<div id="postandings" class="tab-pane">
 					<div class="row">
@@ -410,17 +429,17 @@ a.blue {
 											<tr class="big" style="background-color:yellowgreen;color:black;font-weight:bold;">
 												<th class="big" style="text-align:center;vertical-align:middle;" width="14%"><strong>PRS</strong></th>
 												<th class="big" style="text-align:left;vertical-align:middle;" width="16%"><strong>Team</strong></th>
-												<th class="big" style="text-align:center;vertical-align:middle;" width="14%" ><strong>W</strong></th>
-												<th class="big" style="text-align:center;vertical-align:middle;" width="14%" ><strong>L</strong></th>
-												<th class="big" style="text-align:center;vertical-align:middle;" width="14%" ><strong>PPG</strong></th>
-												<th class="big" style="text-align:center;vertical-align:middle;" width="14%" ><strong>OPPG</strong></th>
-												<th class="big" style="text-align:center;vertical-align:middle;" width="14%" ><strong>DIFF</strong></th>
+												<th class="big" style="text-align:center;vertical-align:middle;" width="14%"><strong>W</strong></th>
+												<th class="big" style="text-align:center;vertical-align:middle;" width="14%"><strong>L</strong></th>
+												<th class="big" style="text-align:center;vertical-align:middle;" width="15%"><strong>PPG</strong></th>
+												<th class="big" style="text-align:center;vertical-align:middle;" width="15%"><strong>OPPG</strong></th>
+												<th class="big" style="text-align:center;vertical-align:middle;" width="12%"><strong>DIFF</strong></th>
 												</tr>
 												<%
 																	 
 												Dim objRSPRS								
 												Set objRSPRS    = Server.CreateObject("ADODB.RecordSet")					 
-												objRSPRS.Open   "SELECT * FROM tblowners o, standings s where o.ownerId = s.id order by s.prs desc ", objConn,3,3,1
+												objRSPRS.Open   "SELECT * FROM tblowners o, standings s where o.ownerId = s.id order by s.prs desc, s.won desc, s.ppg desc ", objConn,3,3,1
 												%>
 												<%
 													While Not objRSPRS.EOF
@@ -430,13 +449,17 @@ a.blue {
 												<%else%>
 													<tr class="big" style="background-color:white;text-align:center;vertical-align:middle;">
 												<%end if %>	
-														<td class="big" style="text-align:center;vertical-align:middle;"><bluePos><%=objRSPRS.Fields("prs").Value %></bluePos></td>
+														<td class="big" style="text-align:center;vertical-align:middle;text-transform:uppercase;"><bluePos><%=objRSPRS.Fields("prs").Value %></bluePos></td>
 														<td class="big" style="text-align:left;vertical-align:middle;"><%=objRSPRS.Fields("shortName").Value %></td>
 														<td class="big" style="text-align:center;vertical-align:middle;"><%=objRSPRS.Fields("won").Value %></td>
 														<td class="big" style="text-align:center;vertical-align:middle;"><%=objRSPRS.Fields("loss").Value %></td>							
 														<td class="big" style="text-align:center;vertical-align:middle;"><%=objRSPRS.Fields("ppg").Value %></td>	
 														<td class="big" style="text-align:center;vertical-align:middle;"><%=objRSPRS.Fields("oppg").Value %></td>	
-														<td class="big" style="text-align:center;vertical-align:middle;"><%=objRSPRS.Fields("diff").Value %></td>	
+														<%if round(objRSPRS.Fields("ppg").Value,1) > round(objRSPRS.Fields("oppg").Value,1) then %>
+															<td class="big greenTrade" style="text-align:center;vertical-align:middle;"><strong>+<%=objRSPRS.Fields("diff").Value %></strong></td>	
+														<%else%>
+															<td class="big red" style="text-align:center;vertical-align:middle;"><strong><%=objRSPRS.Fields("diff").Value %></strong></td>	
+														<%end if%>
 													</tr>
 											<%
 											objRSPRS.MoveNext
@@ -563,8 +586,8 @@ a.blue {
 								<h4><span style="color:#9a1400;font-weight:bold;text-decoration:underline;" class="big">Tie Breaker Rules for Cycle Standings</span></h4>
 								<ol class="big">
 									<li><strong>First place winner receives $25.00</strong></li>
-									<li>If multiple teams share identical records at the end of the cycle, it's determined if an owner has a H2H advantage over all tied teams. If so that team will be placed highest in the standings</li>
-									<li>If Step 2 does not render a decision, the team with the highest PPG will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
+									<li>If multiple teams share identical records at the end of the cycle, it's then determined if an owner has a H2H advantage over all tied teams in the <strong>current cycle</strong>. If so that team will be placed highest in the standings.</li>
+									<li>If Step 2 does not render a decision, the team with the highest PPG in the cycle will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
 								</ol>
 							</div>							
 						</div>
@@ -619,8 +642,8 @@ a.blue {
 								<h4><span style="color:#9a1400;font-weight:bold;text-decoration:underline;" class="big">Tie Breaker Rules for Cycle Standings</span></h4>
 								<ol class="big">
 									<li><strong>First place winner receives $25.00</strong></li>
-									<li>If multiple teams share identical records at the end of the cycle, it's determined if an owner has a H2H advantage over all tied teams. If so that team will be placed highest in the standings</li>
-									<li>If Step 2 does not render a decision, the team with the highest PPG will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
+									<li>If multiple teams share identical records at the end of the cycle, it's then determined if an owner has a H2H advantage over all tied teams in the <strong>current cycle</strong>. If so that team will be placed highest in the standings.</li>
+									<li>If Step 2 does not render a decision, the team with the highest PPG in the cycle will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
 								</ol>
 							</div>	
 						</div>
@@ -675,8 +698,8 @@ a.blue {
 								<h4><span style="color:#9a1400;font-weight:bold;text-decoration:underline;" class="big">Tie Breaker Rules for Cycle Standings</span></h4>
 								<ol class="big">
 									<li><strong>First place winner receives $25.00</strong></li>
-									<li>If multiple teams share identical records at the end of the cycle, it's determined if an owner has a H2H advantage over all tied teams. If so that team will be placed highest in the standings</li>
-									<li>If Step 2 does not render a decision, the team with the highest PPG will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
+									<li>If multiple teams share identical records at the end of the cycle, it's then determined if an owner has a H2H advantage over all tied teams in the <strong>current cycle</strong>. If so that team will be placed highest in the standings.</li>
+									<li>If Step 2 does not render a decision, the team with the highest PPG in the cycle will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
 								</ol>
 							</div>								
 						</div>
@@ -731,8 +754,8 @@ a.blue {
 								<h4><span style="color:#9a1400;font-weight:bold;text-decoration:underline;" class="big">Tie Breaker Rules for Cycle Standings</span></h4>
 								<ol class="big">
 									<li><strong>First place winner receives $25.00</strong></li>
-									<li>If multiple teams share identical records at the end of the cycle, it's determined if an owner has a H2H advantage over all tied teams. If so that team will be placed highest in the standings</li>
-									<li>If Step 2 does not render a decision, the team with the highest PPG will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
+									<li>If multiple teams share identical records at the end of the cycle, it's then determined if an owner has a H2H advantage over all tied teams in the <strong>current cycle</strong>. If so that team will be placed highest in the standings.</li>
+									<li>If Step 2 does not render a decision, the team with the highest PPG in the cycle will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
 								</ol>
 							</div>								
 						</div>
@@ -787,8 +810,8 @@ a.blue {
 								<h4><span style="color:#9a1400;font-weight:bold;text-decoration:underline;" class="big">Tie Breaker Rules for Cycle Standings</span></h4>
 								<ol class="big">
 									<li><strong>First place winner receives $25.00</strong></li>
-									<li>If multiple teams share identical records at the end of the cycle, it's determined if an owner has a H2H advantage over all tied teams. If so that team will be placed highest in the standings</li>
-									<li>If Step 2 does not render a decision, the team with the highest PPG will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
+									<li>If multiple teams share identical records at the end of the cycle, it's then determined if an owner has a H2H advantage over all tied teams in the <strong>current cycle</strong>. If so that team will be placed highest in the standings.</li>
+									<li>If Step 2 does not render a decision, the team with the highest PPG in the cycle will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
 								</ol>
 							</div>								
 						</div>
@@ -843,8 +866,8 @@ a.blue {
 								<h4><span style="color:#9a1400;font-weight:bold;text-decoration:underline;" class="big">Tie Breaker Rules for Cycle Standings</span></h4>
 								<ol class="big">
 									<li><strong>First place winner receives $25.00</strong></li>
-									<li>If multiple teams share identical records at the end of the cycle, it's determined if an owner has a H2H advantage over all tied teams. If so that team will be placed highest in the standings</li>
-									<li>If Step 2 does not render a decision, the team with the highest PPG will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
+									<li>If multiple teams share identical records at the end of the cycle, it's then determined if an owner has a H2H advantage over all tied teams in the <strong>current cycle</strong>. If so that team will be placed highest in the standings.</li>
+									<li>If Step 2 does not render a decision, the team with the highest PPG in the cycle will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
 								</ol>
 							</div>								
 						</div>
@@ -899,8 +922,8 @@ a.blue {
 								<h4><span style="color:#9a1400;font-weight:bold;text-decoration:underline;" class="big">Tie Breaker Rules for Cycle Standings</span></h4>
 								<ol class="big">
 									<li><strong>First place winner receives $25.00</strong></li>
-									<li>If multiple teams share identical records at the end of the cycle, it's determined if an owner has a H2H advantage over all tied teams. If so that team will be placed highest in the standings</li>
-									<li>If Step 2 does not render a decision, the team with the highest PPG will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
+									<li>If multiple teams share identical records at the end of the cycle, it's then determined if an owner has a H2H advantage over all tied teams in the <strong>current cycle</strong>. If so that team will be placed highest in the standings.</li>
+									<li>If Step 2 does not render a decision, the team with the highest PPG in the cycle will receive the highest ranking of all tied teams and be awarded $25.00 for winning the cycle.</li>
 								</ol>
 							</div>								
 						</div>
