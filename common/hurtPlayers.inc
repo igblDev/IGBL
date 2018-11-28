@@ -172,6 +172,10 @@
 								w_Barps     = F1_BARPS
 								F1_BARPS    = F2_BARPS
 								F2_BARPS    = w_Barps
+								
+								w_PID       = F1
+								F1          = F2
+								F2          = w_PID
 							end if
 							
 							if G2_BARPS > G1_BARPS then
@@ -182,6 +186,10 @@
 								w_Barps     = G1_BARPS
 								G1_BARPS    = G2_BARPS
 								G2_BARPS    = w_Barps
+								
+								w_PID       = G1
+								G1          = G2
+								G2          = w_PID
 							end if
 						
 					  End Function	

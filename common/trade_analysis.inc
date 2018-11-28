@@ -54,7 +54,7 @@
 						</tr>
 						</table>
 						</br>
-						<!--<table class="table table-custom table-responsive table-bordered table-condensed">	
+						<!--<table class="table table-custom table-responsive table-bordered table-condensed">
 						<tr>
 						 <th colspan="6" style="color:black;width:32%;font-size:12px !important;">Re-Forecast Trade Analysis Summary</th>
 						</tr>

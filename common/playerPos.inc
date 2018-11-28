@@ -1,11 +1,6 @@
 				<tr>
 				<%if objrsPlayerPos.Fields("lastTeamInd").Value = ownerId then %>
 					<td class ="big" style="white-space:nowrap;vertical-align:middle;text-align:center;"><i class="fas fa-user-lock"></i></td>
-					<td>
-						<a class="blue" href="playerprofile.asp?pid=<%=objrsPlayerPos.Fields("PID").Value %>">
-							<%=objrsPlayerPos.Fields("firstName").Value%>&nbsp;<%=objrsPlayerPos.Fields("lastName").Value%></a>
-						<br><small><span class="greenTrade"><%= objrsPlayerPos.Fields("team").Value%></span>&nbsp;<span class="orange"><%=objrsPlayerPos.Fields("pos").Value%></span></small>
-					</td>
 				<%else%>
 					<%if objrsPlayerPos.Fields("playerStatus").Value = "W" then %>
 						<td class ="big" style="white-space:nowrap;vertical-align:middle;text-align:center;">
