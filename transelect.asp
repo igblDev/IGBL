@@ -711,6 +711,7 @@ select {
     border-color: black;
     border-width: 1px;
 }
+
 </style>
 </head>
 <body>
@@ -752,50 +753,50 @@ function processTransactions(theForm) {
 
 
 $(document).ready(function() {
-    $('#example').DataTable( {
-        "ordering": false,
+    $('#example').DataTable( {		
+        "order": [[ 3, "desc" ]],
 				"paging":  	true,
 				"info":     false
     } );
 } );
 $(document).ready(function() {
     $('#example1').DataTable( {
-        "ordering": false,
+				"order": [[ 3, "desc" ]],
 				"paging":  	true,
 				"info":     false
     } );
 } );
 $(document).ready(function() {
     $('#example2').DataTable( {
-        "ordering": false,
+        "order": [[ 3, "desc" ]],
 				"paging":  	true,
 				"info":     false
     } );
 } );
 $(document).ready(function() {
     $('#example3').DataTable( {
-        "ordering": false,
+        "order": [[ 3, "desc" ]],
 				"paging":  	true,
 				"info":     false
     } );
 } );
 $(document).ready(function() {
     $('#example4').DataTable( {
-        "ordering": false,
+        "order": [[ 3, "desc" ]],
 				"paging":  	true,
 				"info":     false
     } );
 } );
 $(document).ready(function() {
     $('#example5').DataTable( {
-        "ordering": false,
+        "order": [[ 3, "desc" ]],
 				"paging":  	true,
 				"info":     false
     } );
 } );
 $(document).ready(function() {
     $('#example6').DataTable( {
-        "ordering": false,
+        "order": [[ 3, "desc" ]],
 				"paging":  	true,
 				"info":     false
     } );
@@ -1227,7 +1228,7 @@ displayAccordian = true
 						%>
 						</table>
 						</br>
-						<table class="table table-responsive table-bordered table-striped table-condensed">
+						<table class="table table-responsive table-bordered  table-condensed">
 							<tr>
 								<td class="big" style="background-color:black;color:yellowgreen;font-weight:bold;" colspan="2" class="text-center">Waiver Rules</td>
 							</tr>
@@ -1283,10 +1284,10 @@ displayAccordian = true
 				<table class="table table-custom-black table-responsive table-bordered table-condensed display" style="cellspacing:0;width=:100%" id="example">
 					<thead>
 						<tr>
-							<th style="text-align:center;">Sel</th>
-							<th style="text-align:left">Player</th>
-							<th style="text-align:center">AVG</th>
-							<th style="text-align:center">L/5</th>
+							<th style="text-align:center;background-color:white;">Sel</th>
+							<th style="text-align:left;background-color:white;">Player</th>
+							<th style="text-align:center;background-color:white;">AVG</th>
+							<th style="text-align:center;background-color:white;">L/5</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -1344,13 +1345,13 @@ displayAccordian = true
       </div>
       <div id="collapseTwo" class="panel-collapse collapse">
 			<div class="panel-body">
-				<table class="table table-striped table-responsive table-custom-black table-bordered table-condensed display" width="100%" id="example1">
+				<table class="table  table-responsive table-custom-black table-bordered table-condensed display" width="100%" id="example1">
 					<thead>
 						<tr>
-							<th style="text-align:center;">Sel</th>
-							<th style="text-align:left">Player</th>
-							<th style="text-align:center">AVG</th>
-							<th style="text-align:center">L/5</th>
+							<th style="text-align:center;background-color:white;">Sel</th>
+							<th style="text-align:left;background-color:white;">Player</th>
+							<th style="text-align:center;background-color:white;">AVG</th>
+							<th style="text-align:center;background-color:white;">L/5</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -1401,13 +1402,13 @@ displayAccordian = true
       </div>
       <div id="collapseThree" class="panel-collapse collapse">
 			<div class="panel-body">
-				<table class="table table-striped table-responsive table-custom-black table-bordered table-condensed display" width="100%" id="example2">
+				<table class="table  table-responsive table-custom-black table-bordered table-condensed display" width="100%" id="example2">
 					<thead>
 						<tr>
-							<th style="text-align:center;">Sel</th>
-							<th style="text-align:left">Player</th>
-							<th style="text-align:center">AVG</th>
-							<th style="text-align:center">L/5</th>
+							<th style="text-align:center;background-color:white;">Sel</th>
+							<th style="text-align:left;background-color:white;">Player</th>
+							<th style="text-align:center;background-color:white;">AVG</th>
+							<th style="text-align:center;background-color:white;">L/5</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -1458,13 +1459,13 @@ displayAccordian = true
       </div>
       <div id="collapseFour" class="panel-collapse collapse">
 			<div class="panel-body">
-				<table class="table table-striped table-custom-black table-responsive table-bordered table-condensed display" width="100%" id="example3">
+				<table class="table  table-custom-black table-responsive table-bordered table-condensed display" width="100%" id="example3">
 					<thead>
 						<tr>
-							<th style="text-align:center;">Sel</th>
-							<th style="text-align:left">Player</th>
-							<th style="text-align:center">AVG</th>
-							<th style="text-align:center">L/5</th>
+							<th style="text-align:center;background-color:white;">Sel</th>
+							<th style="text-align:left;background-color:white;">Player</th>
+							<th style="text-align:center;background-color:white;">AVG</th>
+							<th style="text-align:center;background-color:white;">L/5</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -1516,13 +1517,13 @@ displayAccordian = true
       </div>
       <div id="collapseFive" class="panel-collapse collapse">
 			<div class="panel-body">
-				<table class="table table-striped table-custom-black table-responsive table-bordered table-condensed display" width="100%" id="example5">
+				<table class="table  table-custom-black table-responsive table-bordered table-condensed display" width="100%" id="example5">
 					<thead>
 						<tr>
-							<th style="text-align:center;">Sel</th>
-							<th style="text-align:left">Player</th>
-							<th style="text-align:center">AVG</th>
-							<th style="text-align:center">L/5</th>
+							<th style="text-align:center;background-color:white;">Sel</th>
+							<th style="text-align:left;background-color:white;">Player</th>
+							<th style="text-align:center;background-color:white;">AVG</th>
+							<th style="text-align:center;background-color:white;">L/5</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -1578,13 +1579,13 @@ displayAccordian = true
       </div>
       <div id="collapseSix" class="panel-collapse collapse">
 				<div class="panel-body">
-				<table class="table table-striped table-custom-black table-responsive table-bordered table-condensed display" width="100%" id="example4">
+				<table class="table  table-custom-black table-responsive table-bordered table-condensed display" width="100%" id="example4">
 					<thead>
 						<tr>
-							<th style="text-align:center;">Sel</th>
-							<th style="text-align:left">Player</th>
-							<th style="text-align:center">Barps</th>
-							<th style="text-align:center">Last 5</th>
+							<th style="text-align:center;background-color:white;">Sel</th>
+							<th style="text-align:left;background-color:white;">Player</th>
+							<th style="text-align:center;background-color:white;">AVG</th>
+							<th style="text-align:center;background-color:white;">L/5</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -1646,7 +1647,7 @@ displayAccordian = true
 <div class="container">
   <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12">
-  <table class="table table-striped table-custom-black table-bordered table-condensed">
+  <table class="table  table-custom-black table-bordered table-condensed">
     <thead>
 			<tr>
 				<th style="text-align:center;">Sel</th>
